@@ -10,21 +10,13 @@ public class Rectangle {
         this.topRight = topRight;
     }
 
-    public Point getBottomLeft() {
-        return bottomLeft;
-    }
+    public Point getBottomLeft() { return bottomLeft; }
 
-    public void setBottomLeft(Point bottomLeft) {
-        this.bottomLeft = bottomLeft;
-    }
+    public void setBottomLeft(Point bottomLeft) { this.bottomLeft = bottomLeft; }
 
-    public Point getTopRight() {
-        return topRight;
-    }
+    public Point getTopRight() { return topRight; }
 
-    public void setTopRight(Point topRight) {
-        this.topRight = topRight;
-    }
+    public void setTopRight(Point topRight) { this.topRight = topRight; }
 
     public boolean isOverlapping(Rectangle other) {
         // one rectangle is to the top of the other

@@ -14,12 +14,13 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class ExcelCellMergerUnitTest {
+
     private static final String FILE_NAME = "ExcelCellFormatterTest.xlsx";
     private String fileLocation;
 
     @Before
     public void setup() throws IOException, URISyntaxException {
-            fileLocation = Paths.get(ClassLoader.getSystemResource(FILE_NAME).toURI()).toString();
+        fileLocation = Paths.get(ClassLoader.getSystemResource(FILE_NAME).toURI()).toString();
     }
 
     @Test
@@ -28,9 +29,9 @@ public class ExcelCellMergerUnitTest {
         Sheet sheet = workbook.getSheetAt(0);
 
         assertEquals(0, sheet.getNumMergedRegions());
-        int firstRow = 0; 
-        int lastRow = 0; 
-        int firstCol = 0; 
+        int firstRow = 0;
+        int lastRow = 0;
+        int firstCol = 0;
         int lastCol = 2;
         sheet.addMergedRegion(new CellRangeAddress(firstRow, lastRow, firstCol, lastCol));
         assertEquals(1, sheet.getNumMergedRegions());
@@ -43,7 +44,7 @@ public class ExcelCellMergerUnitTest {
         Workbook workbook = new XSSFWorkbook(fileLocation);
         Sheet sheet = workbook.getSheetAt(0);
 
-        assertEquals(0, sheet.getNumMergedRegions());        
+        assertEquals(0, sheet.getNumMergedRegions());
         sheet.addMergedRegion(CellRangeAddress.valueOf("A1:C1"));
         assertEquals(1, sheet.getNumMergedRegions());
 

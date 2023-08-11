@@ -1,6 +1,7 @@
 package com.baeldung.algorithms.play2048;
 
 public class Play2048 {
+
     private static final int SIZE = 4;
     private static final int INITIAL_NUMBERS = 2;
 
@@ -43,7 +44,6 @@ public class Play2048 {
         }
         topLines.append("+");
         midLines.append("|");
-
 
         for (int y = 0; y < board.getSize(); ++y) {
             System.out.println(topLines);

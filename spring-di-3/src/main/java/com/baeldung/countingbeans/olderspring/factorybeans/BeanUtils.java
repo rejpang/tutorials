@@ -16,9 +16,9 @@ public class BeanUtils {
     public static List<String> getBeansWithAnnotation(GenericApplicationContext applicationContext, Class<?> annotationClass) {
         List<String> result = new ArrayList<String>();
         ConfigurableListableBeanFactory factory = applicationContext.getBeanFactory();
-        for(String name : factory.getBeanDefinitionNames()) {
+        for (String name : factory.getBeanDefinitionNames()) {
             BeanDefinition bd = factory.getBeanDefinition(name);
-            if(bd.getSource() instanceof AnnotatedTypeMetadata) {
+            if (bd.getSource() instanceof AnnotatedTypeMetadata) {
                 AnnotatedTypeMetadata metadata = (AnnotatedTypeMetadata) bd.getSource();
                 if (metadata.getAnnotationAttributes(annotationClass.getName()) != null) {
                     result.add(name);
@@ -31,14 +31,12 @@ public class BeanUtils {
     // NB : list beans created via factory methods using streams (same method as before, written differently)
     public static List<String> getBeansWithAnnotation_StreamVersion(GenericApplicationContext applicationContext, Class<?> annotationClass) {
         ConfigurableListableBeanFactory factory = applicationContext.getBeanFactory();
-        return Arrays.stream(factory.getBeanDefinitionNames())
-            .filter(name -> isAnnotated(factory, name, annotationClass))
-            .collect(Collectors.toList());
+        return Arrays.stream(factory.getBeanDefinitionNames()).filter(name -> isAnnotated(factory, name, annotationClass)).collect(Collectors.toList());
     }
 
     private static boolean isAnnotated(ConfigurableListableBeanFactory factory, String beanName, Class<?> clazz) {
         BeanDefinition beanDefinition = factory.getBeanDefinition(beanName);
-        if(beanDefinition.getSource() instanceof AnnotatedTypeMetadata) {
+        if (beanDefinition.getSource() instanceof AnnotatedTypeMetadata) {
             AnnotatedTypeMetadata metadata = (AnnotatedTypeMetadata) beanDefinition.getSource();
             return metadata.getAnnotationAttributes(clazz.getName()) != null;
         }

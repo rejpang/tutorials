@@ -19,26 +19,20 @@ public class Seller {
     @Column(name = "name")
     private String sellerName;
 
-    public int getId() {
-        return id;
-    }
+    public int getId() { return id; }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    public void setId(int id) { this.id = id; }
 
-    public String getSellerName() {
-        return sellerName;
-    }
+    public String getSellerName() { return sellerName; }
 
-    public void setSellerName(String sellerName) {
-        this.sellerName = sellerName;
-    }
+    public void setSellerName(String sellerName) { this.sellerName = sellerName; }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
         Seller seller = (Seller) o;
         return Objects.equals(sellerName, seller.sellerName);
     }

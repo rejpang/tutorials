@@ -8,6 +8,7 @@ import jakarta.persistence.InheritanceType;
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Vehicle {
+
     @Id
     private long vehicleId;
 
@@ -21,20 +22,12 @@ public class Vehicle {
         this.manufacturer = manufacturer;
     }
 
-    public long getVehicleId() {
-        return vehicleId;
-    }
+    public long getVehicleId() { return vehicleId; }
 
-    public void setVehicleId(long vehicleId) {
-        this.vehicleId = vehicleId;
-    }
+    public void setVehicleId(long vehicleId) { this.vehicleId = vehicleId; }
 
-    public String getManufacturer() {
-        return manufacturer;
-    }
+    public String getManufacturer() { return manufacturer; }
 
-    public void setManufacturer(String manufacturer) {
-        this.manufacturer = manufacturer;
-    }
+    public void setManufacturer(String manufacturer) { this.manufacturer = manufacturer; }
 
 }

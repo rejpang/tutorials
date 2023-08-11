@@ -9,6 +9,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertEquals;
 
 public class LinesIntersectionServiceUnitTest {
+
     private LinesIntersectionService service = new LinesIntersectionService();
 
     @Test

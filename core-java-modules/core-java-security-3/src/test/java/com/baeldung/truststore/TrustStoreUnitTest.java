@@ -16,8 +16,8 @@ public class TrustStoreUnitTest {
     @Test
     public void whenOpeningTrustStore_thenExceptionIsThrown() throws Exception {
         KeyStore keyStore = getKeyStore();
-        InvalidAlgorithmParameterException invalidAlgorithmParameterException =
-          Assertions.assertThrows(InvalidAlgorithmParameterException.class, () -> new PKIXParameters(keyStore));
+        InvalidAlgorithmParameterException invalidAlgorithmParameterException = Assertions.assertThrows(InvalidAlgorithmParameterException.class,
+                                                                                                        () -> new PKIXParameters(keyStore));
         Assertions.assertEquals("the trustAnchors parameter must be non-empty", invalidAlgorithmParameterException.getMessage());
     }
 

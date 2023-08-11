@@ -14,9 +14,7 @@ import org.hibernate.usertype.UserType;
 public class CustomIntegerArrayType implements UserType<Integer[]> {
 
     @Override
-    public int getSqlType() {
-        return Types.ARRAY;
-    }
+    public int getSqlType() { return Types.ARRAY; }
 
     @Override
     public Class<Integer[]> returnedClass() {
@@ -61,9 +59,7 @@ public class CustomIntegerArrayType implements UserType<Integer[]> {
     }
 
     @Override
-    public boolean isMutable() {
-        return false;
-    }
+    public boolean isMutable() { return false; }
 
     @Override
     public Serializable disassemble(Integer[] value) {

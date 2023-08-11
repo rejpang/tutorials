@@ -15,15 +15,14 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class CellStylerUnitTest {
+
     private static String FILE_NAME = "com/baeldung/poi/excel/cellstyle/CellStyle.xlsx";
     private static final String NEW_FILE_NAME = "CellStyleTest_output.xlsx";
     private String fileLocation;
 
     @Before
     public void setup() throws IOException, URISyntaxException {
-        fileLocation = Paths.get(ClassLoader.getSystemResource(FILE_NAME)
-            .toURI())
-            .toString();
+        fileLocation = Paths.get(ClassLoader.getSystemResource(FILE_NAME).toURI()).toString();
     }
 
     @Test

@@ -11,7 +11,7 @@ import com.baeldung.groovyconfig.BandsBean;
 import com.baeldung.groovyconfig.JavaPersonBean;
 
 public class GroovyConfigurationUnitTest {
-    
+
     private static final String FILE_NAME = "GroovyBeanConfig.groovy";
     private static final String FILE_PATH = "src/main/java/com/baeldung/groovyconfig/";
 
@@ -31,15 +31,14 @@ public class GroovyConfigurationUnitTest {
 
     @Test
     public void whenGroovyConfig_thenCorrectListLength() throws Exception {
-        
+
         GenericGroovyApplicationContext ctx = new GenericGroovyApplicationContext();
         ctx.load("file:" + getPathPart() + FILE_NAME);
         ctx.refresh();
 
         BandsBean bb = ctx.getBean(BandsBean.class);
 
-        assertEquals(3, bb.getBandsList()
-            .size());
+        assertEquals(3, bb.getBandsList().size());
     }
 
     private String getPathPart() {

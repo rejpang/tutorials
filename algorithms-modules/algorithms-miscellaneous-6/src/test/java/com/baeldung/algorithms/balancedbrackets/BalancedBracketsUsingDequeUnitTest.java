@@ -1,12 +1,12 @@
 package com.baeldung.algorithms.balancedbrackets;
 
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class BalancedBracketsUsingDequeUnitTest {
+
     private BalancedBracketsUsingDeque balancedBracketsUsingDeque;
 
     @BeforeEach

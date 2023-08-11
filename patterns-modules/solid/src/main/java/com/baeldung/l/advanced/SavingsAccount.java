@@ -3,7 +3,8 @@ package com.baeldung.l.advanced;
 import java.math.BigDecimal;
 
 public class SavingsAccount extends Account {
-    @Override    
+
+    @Override
     protected void deposit(BigDecimal amount) {
         // Deposit into SavingsAccount
     }

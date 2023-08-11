@@ -8,6 +8,7 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 
 class TopKElementsFinderUnitTest {
+
     private final TopKElementsFinder<Integer> bruteForceFinder = new BruteForceTopKElementsFinder();
     private final TopKElementsFinder<Integer> maxHeapFinder = new MaxHeapTopKElementsFinder();
     private final TopKElementsFinder<Integer> treeSetFinder = new TreeSetTopKElementsFinder();
@@ -17,7 +18,6 @@ class TopKElementsFinderUnitTest {
     private final List<Integer> distinctIntegersTopK = Arrays.asList(9, 7, 6, 12);
     private final List<Integer> nonDistinctIntegers = Arrays.asList(1, 2, 3, 3, 9, 9, 7, 6, 12);
     private final List<Integer> nonDistinctIntegersTopK = Arrays.asList(9, 9, 7, 12);
-
 
     @Test
     void givenArrayDistinctIntegers_whenBruteForceFindTopK_thenReturnKLargest() {

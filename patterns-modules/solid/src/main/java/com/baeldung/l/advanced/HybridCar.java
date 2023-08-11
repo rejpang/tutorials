@@ -1,6 +1,7 @@
 package com.baeldung.l.advanced;
 
 public class HybridCar extends Car {
+
     // invariant: charge >= 0;
     private int charge;
 

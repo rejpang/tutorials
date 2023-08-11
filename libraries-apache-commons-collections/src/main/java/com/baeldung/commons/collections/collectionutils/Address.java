@@ -6,29 +6,17 @@ public class Address {
     private String city;
     private String zip;
 
-    public String getLocality() {
-        return locality;
-    }
+    public String getLocality() { return locality; }
 
-    public void setLocality(String locality) {
-        this.locality = locality;
-    }
+    public void setLocality(String locality) { this.locality = locality; }
 
-    public String getCity() {
-        return city;
-    }
+    public String getCity() { return city; }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
+    public void setCity(String city) { this.city = city; }
 
-    public String getZip() {
-        return zip;
-    }
+    public String getZip() { return zip; }
 
-    public void setZip(String zip) {
-        this.zip = zip;
-    }
+    public void setZip(String zip) { this.zip = zip; }
 
     @Override
     public String toString() {

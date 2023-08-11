@@ -30,22 +30,21 @@ public class GetAllKeysFromJSON {
 
     private void getAllKeys(Map<String, Object> jsonElements, List<String> keys) {
 
-        jsonElements.entrySet()
-            .forEach(entry -> {
-                keys.add(entry.getKey());
-                if (entry.getValue() instanceof Map) {
-                    Map<String, Object> map = (Map<String, Object>) entry.getValue();
-                    getAllKeys(map, keys);
-                } else if (entry.getValue() instanceof List) {
-                    List<?> list = (List<?>) entry.getValue();
-                    list.forEach(listEntry -> {
-                        if (listEntry instanceof Map) {
-                            Map<String, Object> map = (Map<String, Object>) listEntry;
-                            getAllKeys(map, keys);
-                        }
-                    });
-                }
-            });
+        jsonElements.entrySet().forEach(entry -> {
+            keys.add(entry.getKey());
+            if (entry.getValue() instanceof Map) {
+                Map<String, Object> map = (Map<String, Object>) entry.getValue();
+                getAllKeys(map, keys);
+            } else if (entry.getValue() instanceof List) {
+                List<?> list = (List<?>) entry.getValue();
+                list.forEach(listEntry -> {
+                    if (listEntry instanceof Map) {
+                        Map<String, Object> map = (Map<String, Object>) listEntry;
+                        getAllKeys(map, keys);
+                    }
+                });
+            }
+        });
     }
 
     public List<String> getKeysInJsonUsingJsonNodeFieldNames(String json, ObjectMapper mapper) throws JsonMappingException, JsonProcessingException {

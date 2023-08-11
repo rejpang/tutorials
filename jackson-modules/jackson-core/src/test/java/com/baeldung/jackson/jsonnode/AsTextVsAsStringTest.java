@@ -9,15 +9,14 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 class AsTextVsAsStringUnitTest {
+
     @Test
     void shouldUseAsText() throws JsonProcessingException {
         String json = "{\"name\":\"John\",\"age\":30}";
         JsonNode node = new ObjectMapper().readTree(json);
 
-        String name = node.get("name")
-          .asText();
-        String age = node.get("age")
-          .asText();
+        String name = node.get("name").asText();
+        String age = node.get("age").asText();
         String jsonText = node.asText();
         assertThat(jsonText).isEmpty();
         assertThat(name).isEqualTo("John");
@@ -28,10 +27,8 @@ class AsTextVsAsStringUnitTest {
     void shouldUseAsTextWithEscapeCharacters() throws JsonProcessingException {
         String specialCharsJson = "{\"text\":\"Hello \\\"world\\\" !\"}";
         JsonNode specialCharsNode = new ObjectMapper().readTree(specialCharsJson);
-        String specialCharsJsonAsText = specialCharsNode.get("text")
-          .asText();
-        String specialCharsJsonToString = specialCharsNode.get("text")
-          .toString();
+        String specialCharsJsonAsText = specialCharsNode.get("text").asText();
+        String specialCharsJsonToString = specialCharsNode.get("text").toString();
         assertThat(specialCharsJsonAsText).isEqualTo("Hello \"world\" !");
         assertThat(specialCharsJsonToString).isEqualTo("\"Hello \\\"world\\\" !\"");
     }
@@ -42,10 +39,8 @@ class AsTextVsAsStringUnitTest {
         JsonNode node = new ObjectMapper().readTree(json);
 
         String jsonString = node.toString();
-        String name = node.get("name")
-          .toString();
-        String age = node.get("age")
-          .toString();
+        String name = node.get("name").toString();
+        String age = node.get("age").toString();
         assertThat(jsonString).isEqualTo("{\"name\":\"John\",\"age\":30}");
         assertThat(name).isEqualTo("\"John\"");
         assertThat(age).isEqualTo("30");

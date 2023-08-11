@@ -21,9 +21,7 @@ public class AddressController {
     }
 
     @GetMapping("/addresses")
-    List<Address> getAllAddresses() {
-        return repository.findAll();
-    }
+    List<Address> getAllAddresses() { return repository.findAll(); }
 
     @GetMapping("/addresses/{id}")
     Optional<Address> getAddressesById(@PathVariable Long id) {
@@ -38,15 +36,13 @@ public class AddressController {
     @PutMapping("/addresses/{id}")
     Address replaceEmployee(@RequestBody Address newAddress, @PathVariable Long id) {
 
-        return repository.findById(id)
-            .map(address -> {
-                address.setCity(newAddress.getCity());
-                address.setPostalCode(newAddress.getPostalCode());
-                return repository.save(address);
-            })
-            .orElseGet(() -> {
-                return repository.save(newAddress);
-            });
+        return repository.findById(id).map(address -> {
+            address.setCity(newAddress.getCity());
+            address.setPostalCode(newAddress.getPostalCode());
+            return repository.save(address);
+        }).orElseGet(() -> {
+            return repository.save(newAddress);
+        });
     }
 
     @DeleteMapping("/addresses/{id}")

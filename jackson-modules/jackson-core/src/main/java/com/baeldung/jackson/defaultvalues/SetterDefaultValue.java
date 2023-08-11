@@ -5,19 +5,15 @@ public class SetterDefaultValue {
     private String required;
     private String optional = "valueIfMissingEntirely";
 
-    public void setOptional(String optional){
-        if(optional == null){
+    public void setOptional(String optional) {
+        if (optional == null) {
             this.optional = "valueIfNull";
         }
     }
 
-    public String getRequired() {
-        return required;
-    }
+    public String getRequired() { return required; }
 
-    public String getOptional() {
-        return optional;
-    }
+    public String getOptional() { return optional; }
 
     @Override
     public String toString() {

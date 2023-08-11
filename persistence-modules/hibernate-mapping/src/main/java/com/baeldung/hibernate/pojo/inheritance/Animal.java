@@ -13,28 +13,20 @@ public class Animal {
     private long animalId;
 
     private String species;
-    
-    public Animal() {}    
+
+    public Animal() {}
 
     public Animal(long animalId, String species) {
         this.animalId = animalId;
         this.species = species;
     }
 
-    public long getAnimalId() {
-        return animalId;
-    }
+    public long getAnimalId() { return animalId; }
 
-    public void setAnimalId(long animalId) {
-        this.animalId = animalId;
-    }
+    public void setAnimalId(long animalId) { this.animalId = animalId; }
 
-    public String getSpecies() {
-        return species;
-    }
+    public String getSpecies() { return species; }
 
-    public void setSpecies(String species) {
-        this.species = species;
-    }
+    public void setSpecies(String species) { this.species = species; }
 
 }

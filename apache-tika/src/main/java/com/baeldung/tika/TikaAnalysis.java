@@ -17,6 +17,7 @@ import org.xml.sax.ContentHandler;
 import org.xml.sax.SAXException;
 
 public class TikaAnalysis {
+
     public static String detectDocTypeUsingDetector(InputStream stream) throws IOException {
         Detector detector = new DefaultDetector();
         Metadata metadata = new Metadata();

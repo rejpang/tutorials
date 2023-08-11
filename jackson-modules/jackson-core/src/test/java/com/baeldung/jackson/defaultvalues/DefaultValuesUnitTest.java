@@ -12,8 +12,8 @@ public class DefaultValuesUnitTest {
         String noOptionalField = "{\"required\": \"value\"}";
         ObjectMapper objectMapper = new ObjectMapper();
         NonAnnotatedDefaultValue createdObject = objectMapper.readValue(noOptionalField, NonAnnotatedDefaultValue.class);
-        assert(createdObject.getRequired()).equals("value");
-        assert(createdObject.getOptional()).equals("defaultValue");
+        assert (createdObject.getRequired()).equals("value");
+        assert (createdObject.getOptional()).equals("defaultValue");
     }
 
     @Test
@@ -21,8 +21,8 @@ public class DefaultValuesUnitTest {
         String nullOptionalField = "{\"required\": \"value\", \"optional\": null}";
         ObjectMapper objectMapper = new ObjectMapper();
         SetterDefaultValue createdObject = objectMapper.readValue(nullOptionalField, SetterDefaultValue.class);
-        assert(createdObject.getRequired()).equals("value");
-        assert(createdObject.getOptional()).equals("valueIfNull");
+        assert (createdObject.getRequired()).equals("value");
+        assert (createdObject.getOptional()).equals("valueIfNull");
     }
 
     @Test
@@ -30,8 +30,8 @@ public class DefaultValuesUnitTest {
         String nullOptionalField = "{\"required\": \"value\", \"optional\": null}";
         ObjectMapper objectMapper = new ObjectMapper();
         NullsSkipDefaultValue createdObject = objectMapper.readValue(nullOptionalField, NullsSkipDefaultValue.class);
-        assert(createdObject.getRequired()).equals("value");
-        assert(createdObject.getOptional()).equals("defaultValue");
+        assert (createdObject.getRequired()).equals("value");
+        assert (createdObject.getOptional()).equals("defaultValue");
     }
 
 }

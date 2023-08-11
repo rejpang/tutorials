@@ -11,13 +11,13 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 public class CorrectControllerIntegrationTest {
-    
+
     @Autowired
     CorrectController controller;
-    
+
     @Test
     void whenControl_ThenRunSuccessfully() {
         assertDoesNotThrow(() -> controller.control());
     }
-    
+
 }

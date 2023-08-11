@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 
 @Entity
 public class Car extends Vehicle {
+
     private String engine;
 
     public Car() {
@@ -14,12 +15,8 @@ public class Car extends Vehicle {
         this.engine = engine;
     }
 
-    public String getEngine() {
-        return engine;
-    }
+    public String getEngine() { return engine; }
 
-    public void setEngine(String engine) {
-        this.engine = engine;
-    }
+    public void setEngine(String engine) { this.engine = engine; }
 
 }

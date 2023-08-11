@@ -10,7 +10,7 @@ import javax.crypto.spec.IvParameterSpec;
 public class InvalidAlgorithmParameterExamples {
 
     public static byte[] encryptUsingIv(SecretKey key, byte[] ivBytes, String plainText)
-            throws InvalidKeyException, GeneralSecurityException {
+                                                                                         throws InvalidKeyException, GeneralSecurityException {
         IvParameterSpec ivParameterSpec = new IvParameterSpec(ivBytes);
 
         Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");

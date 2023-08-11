@@ -10,5 +10,5 @@ public class MyServiceConfiguration {
     MyService myService() {
         return new MyService();
     }
-    
+
 }

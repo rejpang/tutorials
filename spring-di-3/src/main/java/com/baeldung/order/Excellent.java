@@ -8,7 +8,5 @@ import org.springframework.core.annotation.Order;
 public class Excellent implements Rating {
 
     @Override
-    public int getRating() {
-        return 1;
-    }
+    public int getRating() { return 1; }
 }

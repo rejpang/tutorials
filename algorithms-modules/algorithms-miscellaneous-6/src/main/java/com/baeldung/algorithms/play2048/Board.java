@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Board {
+
     private static final Logger LOG = LoggerFactory.getLogger(Board.class);
 
     private final int[][] board;
@@ -16,7 +17,7 @@ public class Board {
     private final int score;
 
     public Board(int size) {
-        assert(size > 0);
+        assert (size > 0);
 
         this.board = new int[size][];
         this.score = 0;
@@ -38,19 +39,15 @@ public class Board {
         }
     }
 
-    public int getSize() {
-        return board.length;
-    }
+    public int getSize() { return board.length; }
 
-    public int getScore() {
-        return score;
-    }
+    public int getScore() { return score; }
 
     public int getCell(Cell cell) {
         int x = cell.getX();
         int y = cell.getY();
-        assert(x >= 0 && x < board.length);
-        assert(y >= 0 && y < board.length);
+        assert (x >= 0 && x < board.length);
+        assert (y >= 0 && y < board.length);
 
         return board[x][y];
     }

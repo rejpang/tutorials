@@ -20,6 +20,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 public class NodeOperationUnitTest {
+
     private static ObjectMapper mapper = new ObjectMapper();
 
     @Test
@@ -28,10 +29,8 @@ public class NodeOperationUnitTest {
 
         final JsonNode node = mapper.valueToTree(fromValue);
 
-        assertEquals(2016, node.get("id")
-            .intValue());
-        assertEquals("baeldung.com", node.get("name")
-            .textValue());
+        assertEquals(2016, node.get("id").intValue());
+        assertEquals("baeldung.com", node.get("name").textValue());
     }
 
     @Test
@@ -74,21 +73,12 @@ public class NodeOperationUnitTest {
     public void givenANode_whenAddingIntoATree_thenCorrect() throws IOException {
         final JsonNode rootNode = ExampleStructure.getExampleRoot();
         final ObjectNode addedNode = ((ObjectNode) rootNode).putObject("address");
-        addedNode.put("city", "Seattle")
-            .put("state", "Washington")
-            .put("country", "United States");
+        addedNode.put("city", "Seattle").put("state", "Washington").put("country", "United States");
 
-        assertFalse(rootNode.path("address")
-            .isMissingNode());
-        assertEquals("Seattle", rootNode.path("address")
-            .path("city")
-            .textValue());
-        assertEquals("Washington", rootNode.path("address")
-            .path("state")
-            .textValue());
-        assertEquals("United States", rootNode.path("address")
-            .path("country")
-            .textValue());
+        assertFalse(rootNode.path("address").isMissingNode());
+        assertEquals("Seattle", rootNode.path("address").path("city").textValue());
+        assertEquals("Washington", rootNode.path("address").path("state").textValue());
+        assertEquals("United States", rootNode.path("address").path("country").textValue());
     }
 
     @Test
@@ -99,12 +89,8 @@ public class NodeOperationUnitTest {
         final JsonNode rootNode = ExampleStructure.getExampleRoot();
         ((ObjectNode) rootNode).set("name", newNode);
 
-        assertFalse(rootNode.path("name")
-            .path("nick")
-            .isMissingNode());
-        assertEquals("cowtowncoder", rootNode.path("name")
-            .path("nick")
-            .textValue());
+        assertFalse(rootNode.path("name").path("nick").isMissingNode());
+        assertEquals("cowtowncoder", rootNode.path("name").path("nick").textValue());
     }
 
     @Test
@@ -112,8 +98,7 @@ public class NodeOperationUnitTest {
         final JsonNode rootNode = ExampleStructure.getExampleRoot();
         ((ObjectNode) rootNode).remove("company");
 
-        assertTrue(rootNode.path("company")
-            .isMissingNode());
+        assertTrue(rootNode.path("company").isMissingNode());
     }
 
 }

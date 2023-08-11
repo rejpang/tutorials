@@ -3,6 +3,7 @@ package com.baeldung.s;
 import java.util.Arrays;
 
 public class TextPrinter {
+
     TextManipulator textManipulator;
 
     public TextPrinter(TextManipulator textManipulator) {

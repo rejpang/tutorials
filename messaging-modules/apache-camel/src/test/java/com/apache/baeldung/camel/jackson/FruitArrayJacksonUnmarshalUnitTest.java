@@ -27,8 +27,7 @@ public class FruitArrayJacksonUnmarshalUnitTest extends CamelTestSupport {
         template.sendBody("direct:jsonInput", json);
         assertMockEndpointsSatisfied();
 
-        @SuppressWarnings("unchecked")
-        List<Fruit> fruitList = mock.getReceivedExchanges().get(0).getIn().getBody(List.class);
+        @SuppressWarnings("unchecked") List<Fruit> fruitList = mock.getReceivedExchanges().get(0).getIn().getBody(List.class);
         assertNotNull("Fruit lists should not be null", fruitList);
 
         assertEquals("There should be two fruits", 2, fruitList.size());
@@ -41,15 +40,15 @@ public class FruitArrayJacksonUnmarshalUnitTest extends CamelTestSupport {
         assertEquals("Fruit name", "Apple", fruit.getName());
         assertEquals("Fruit id", 101, fruit.getId());
     }
-    
+
     @Override
     protected RouteBuilder createRouteBuilder() throws Exception {
         return new RouteBuilder() {
+
             @Override
             public void configure() throws Exception {
 
-                from("direct:jsonInput").unmarshal(new ListJacksonDataFormat(Fruit.class))
-                    .to("mock:marshalledObject");
+                from("direct:jsonInput").unmarshal(new ListJacksonDataFormat(Fruit.class)).to("mock:marshalledObject");
             }
         };
     }

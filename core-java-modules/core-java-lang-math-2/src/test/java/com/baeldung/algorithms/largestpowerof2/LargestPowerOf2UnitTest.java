@@ -10,6 +10,7 @@ import org.junit.runners.Parameterized;
 
 @RunWith(Parameterized.class)
 public class LargestPowerOf2UnitTest {
+
     private long input;
     private long expectedResult;
 

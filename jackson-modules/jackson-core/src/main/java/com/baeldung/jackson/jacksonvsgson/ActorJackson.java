@@ -29,29 +29,17 @@ public class ActorJackson {
         return "ActorJackson [imdbId=" + imdbId + ", dateOfBirth=" + formatDateOfBirth() + ", filmography=" + filmography + "]";
     }
 
-    public String getImdbId() {
-        return imdbId;
-    }
+    public String getImdbId() { return imdbId; }
 
-    public void setImdbId(String imdbId) {
-        this.imdbId = imdbId;
-    }
+    public void setImdbId(String imdbId) { this.imdbId = imdbId; }
 
-    public Date getDateOfBirth() {
-        return dateOfBirth;
-    }
+    public Date getDateOfBirth() { return dateOfBirth; }
 
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
+    public void setDateOfBirth(Date dateOfBirth) { this.dateOfBirth = dateOfBirth; }
 
-    public List<String> getFilmography() {
-        return filmography;
-    }
+    public List<String> getFilmography() { return filmography; }
 
-    public void setFilmography(List<String> filmography) {
-        this.filmography = filmography;
-    }
+    public void setFilmography(List<String> filmography) { this.filmography = filmography; }
 
     private String formatDateOfBirth() {
         final DateFormat formatter = new SimpleDateFormat("EEE MMM dd hh:mm:ss zzz yyyy", Locale.US);

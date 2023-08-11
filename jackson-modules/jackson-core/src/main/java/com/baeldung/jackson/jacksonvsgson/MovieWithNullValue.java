@@ -20,27 +20,15 @@ public class MovieWithNullValue {
         this.actors = actors;
     }
 
-    public String getImdbID() {
-        return imdbId;
-    }
+    public String getImdbID() { return imdbId; }
 
-    public void setImdbID(String imdbID) {
-        this.imdbId = imdbID;
-    }
+    public void setImdbID(String imdbID) { this.imdbId = imdbID; }
 
-    public String getDirector() {
-        return director;
-    }
+    public String getDirector() { return director; }
 
-    public void setDirector(String director) {
-        this.director = director;
-    }
+    public void setDirector(String director) { this.director = director; }
 
-    public List<ActorJackson> getActors() {
-        return actors;
-    }
+    public List<ActorJackson> getActors() { return actors; }
 
-    public void setActors(List<ActorJackson> actors) {
-        this.actors = actors;
-    }
+    public void setActors(List<ActorJackson> actors) { this.actors = actors; }
 }

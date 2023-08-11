@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class BooleanTrueVsTrueUnitTest {
 
-
     @Test
     public void given_BooleanValues_whenUsingBooleanTrue_thenTestBooleanEquality() {
         assertEquals(Boolean.TRUE, Boolean.valueOf(true));

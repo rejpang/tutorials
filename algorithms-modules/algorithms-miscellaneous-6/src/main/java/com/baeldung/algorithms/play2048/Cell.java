@@ -3,6 +3,7 @@ package com.baeldung.algorithms.play2048;
 import java.util.StringJoiner;
 
 public class Cell {
+
     private int x;
     private int y;
 
@@ -11,13 +12,9 @@ public class Cell {
         this.y = y;
     }
 
-    public int getX() {
-        return x;
-    }
+    public int getX() { return x; }
 
-    public int getY() {
-        return y;
-    }
+    public int getY() { return y; }
 
     @Override
     public String toString() {

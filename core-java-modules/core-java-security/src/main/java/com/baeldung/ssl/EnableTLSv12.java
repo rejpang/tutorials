@@ -45,9 +45,7 @@ public class EnableTLSv12 {
         enableTLSv12.enableTLSv12UsingSSLParameters();
     }
 
-    private void setPort(String[] args) {
-        url = args[0];
-    }
+    private void setPort(String[] args) { url = args[0]; }
 
     private void setHost(String[] args) {
         String portNumber = args[1];
@@ -56,7 +54,8 @@ public class EnableTLSv12 {
 
     private void handleCommunication(SSLSocket socket, String usedTLSProcess) throws IOException {
         logger.debug("Enabled TLS v1.2 on " + usedTLSProcess);
-        try (PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()))); BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
+        try (PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())));
+             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
             out.println("GET / HTTP/1.0");
             out.println();
             out.flush();

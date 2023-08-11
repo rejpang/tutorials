@@ -46,10 +46,10 @@ public class FruitListJacksonUnmarshalUnitTest extends CamelTestSupport {
     @Override
     protected RouteBuilder createRouteBuilder() throws Exception {
         return new RouteBuilder() {
+
             @Override
             public void configure() throws Exception {
-                from("direct:jsonInput").unmarshal(new JacksonDataFormat(FruitList.class))
-                    .to("mock:marshalledObject");
+                from("direct:jsonInput").unmarshal(new JacksonDataFormat(FruitList.class)).to("mock:marshalledObject");
             }
         };
     }

@@ -5,7 +5,7 @@ import java.lang.annotation.RetentionPolicy;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 
-@Retention( RetentionPolicy.RUNTIME )
+@Retention(RetentionPolicy.RUNTIME)
 @Qualifier
 public @interface MyCustomAnnotation {
 

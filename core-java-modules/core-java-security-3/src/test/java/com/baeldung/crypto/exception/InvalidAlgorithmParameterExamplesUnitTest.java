@@ -27,19 +27,19 @@ public class InvalidAlgorithmParameterExamplesUnitTest {
 
     @Test
     public void givenIvIsTooShort_whenEncryptingUsingCBC_thenInvalidAlgorithmParameterExceptionIsThrown()
-            throws GeneralSecurityException {
+                                                                                                          throws GeneralSecurityException {
         byte[] ivBytes = new byte[] { 'B', 'a', 'e', 'l', 'd', 'u', 'n', 'g', 'I', 's', 'G', 'r', 'e', 'a', 't' };
         Assert.assertThrows(InvalidAlgorithmParameterException.class,
-                () -> InvalidAlgorithmParameterExamples.encryptUsingIv(key, ivBytes, plainText));
+                            () -> InvalidAlgorithmParameterExamples.encryptUsingIv(key, ivBytes, plainText));
     }
 
     @Test
     public void givenIvIsTooLong_whenEncryptingUsingCBC_thenInvalidAlgorithmParameterExceptionIsThrown()
-            throws GeneralSecurityException {
+                                                                                                         throws GeneralSecurityException {
         byte[] ivBytes = new byte[] { 'B', 'a', 'e', 'l', 'd', 'u', 'n', 'g', 'I', 's', 'G', 'r', 'e', 'a', 't', '!',
-                '?' };
+            '?' };
         Assert.assertThrows(InvalidAlgorithmParameterException.class,
-                () -> InvalidAlgorithmParameterExamples.encryptUsingIv(key, ivBytes, plainText));
+                            () -> InvalidAlgorithmParameterExamples.encryptUsingIv(key, ivBytes, plainText));
     }
 
     @Test

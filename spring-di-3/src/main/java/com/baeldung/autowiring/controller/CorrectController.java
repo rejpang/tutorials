@@ -7,10 +7,10 @@ import com.baeldung.autowiring.service.MyService;
 
 @Controller
 public class CorrectController {
-    
+
     @Autowired
     MyService myService;
-    
+
     public String control() {
         return myService.serve();
     }

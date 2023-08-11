@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 
 @Entity
 public class MyEmployee extends Person {
+
     private String company;
 
     public MyEmployee(long personId, String name, String company) {
@@ -11,12 +12,8 @@ public class MyEmployee extends Person {
         this.company = company;
     }
 
-    public String getCompany() {
-        return company;
-    }
+    public String getCompany() { return company; }
 
-    public void setCompany(String company) {
-        this.company = company;
-    }
+    public void setCompany(String company) { this.company = company; }
 
 }

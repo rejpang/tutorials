@@ -11,7 +11,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-
 public class ArrayMappingIntegrationTest {
 
     private Session session;
@@ -32,7 +31,7 @@ public class ArrayMappingIntegrationTest {
 
     @AfterEach
     public void cleanup() {
-        if (null != session) { 
+        if (null != session) {
             transaction.rollback();
             session.close();
         }
@@ -62,10 +61,10 @@ public class ArrayMappingIntegrationTest {
             user.setId(2L);
             user.setName("smith");
 
-            String[] roles = {"admin", "employee"};
+            String[] roles = { "admin", "employee" };
             user.setRoles(roles);
 
-            Integer[] locations = {190, 578};
+            Integer[] locations = { 190, 578 };
             user.setLocations(locations);
 
             session.persist(user);
@@ -89,8 +88,8 @@ public class ArrayMappingIntegrationTest {
 
             User user = session.find(User.class, 1L);
 
-            String[] updatedRoles = {"superuser", "superadmin"};
-            String[] updatedPhoneNumbers = {"9000000000"};
+            String[] updatedRoles = { "superuser", "superadmin" };
+            String[] updatedPhoneNumbers = { "9000000000" };
 
             user.setRoles(updatedRoles);
             user.setPhoneNumbers(updatedPhoneNumbers);
@@ -114,13 +113,13 @@ public class ArrayMappingIntegrationTest {
         user.setId(1L);
         user.setName("john");
 
-        String[] roles = {"superuser", "admin"};
+        String[] roles = { "superuser", "admin" };
         user.setRoles(roles);
 
-        Integer[] locations = {100, 389};
+        Integer[] locations = { 100, 389 };
         user.setLocations(locations);
 
-        String[] phoneNumbers = {"7000000000", "8000000000"};
+        String[] phoneNumbers = { "7000000000", "8000000000" };
         user.setPhoneNumbers(phoneNumbers);
 
         session.persist(user);

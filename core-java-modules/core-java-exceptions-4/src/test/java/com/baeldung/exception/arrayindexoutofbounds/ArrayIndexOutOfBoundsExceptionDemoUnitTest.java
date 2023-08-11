@@ -17,18 +17,18 @@ public class ArrayIndexOutOfBoundsExceptionDemoUnitTest {
     @Test
     void givenAnArrayOfSizeFive_whenAccessedElementBeyondRange_thenShouldThrowArrayIndexOutOfBoundsException() {
         assertThrows(ArrayIndexOutOfBoundsException.class,
-          () -> ArrayIndexOutOfBoundsExceptionDemo.addArrayElementsUsingLoop(numbers));
+                     () -> ArrayIndexOutOfBoundsExceptionDemo.addArrayElementsUsingLoop(numbers));
     }
 
     @Test
     void givenAnArrayOfSizeFive_whenAccessedAnElementAtIndexEqualToSize_thenShouldThrowArrayIndexOutOfBoundsException() {
         assertThrows(ArrayIndexOutOfBoundsException.class,
-          () -> ArrayIndexOutOfBoundsExceptionDemo.getArrayElementAtIndex(numbers, 5));
+                     () -> ArrayIndexOutOfBoundsExceptionDemo.getArrayElementAtIndex(numbers, 5));
     }
 
     @Test
     void givenAListReturnedByArraysAsListMethod_whenAccessedAnElementAtIndexEqualToSize_thenShouldThrowArrayIndexOutOfBoundsException() {
         assertThrows(ArrayIndexOutOfBoundsException.class,
-          () -> ArrayIndexOutOfBoundsExceptionDemo.getListElementAtIndex(5));
+                     () -> ArrayIndexOutOfBoundsExceptionDemo.getListElementAtIndex(5));
     }
 }

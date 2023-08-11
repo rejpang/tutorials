@@ -8,6 +8,7 @@ import org.apache.poi.ss.usermodel.VerticalAlignment;
 import org.apache.poi.ss.usermodel.Workbook;
 
 public class CellStyler {
+
     public CellStyle createWarningColor(Workbook workbook) {
         CellStyle style = workbook.createCellStyle();
 

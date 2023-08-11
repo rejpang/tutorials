@@ -8,7 +8,5 @@ import org.springframework.stereotype.Component;
 public class Good implements Rating {
 
     @Override
-    public int getRating() {
-        return 2;
-    }
+    public int getRating() { return 2; }
 }

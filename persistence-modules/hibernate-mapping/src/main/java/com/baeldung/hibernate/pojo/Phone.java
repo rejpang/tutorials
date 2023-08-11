@@ -24,27 +24,15 @@ public class Phone implements Serializable {
         this.number = number;
     }
 
-    public Integer getId() {
-        return id;
-    }
+    public Integer getId() { return id; }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    public void setId(Integer id) { this.id = id; }
 
-    public boolean isDeleted() {
-        return deleted;
-    }
+    public boolean isDeleted() { return deleted; }
 
-    public void setDeleted(boolean deleted) {
-        this.deleted = deleted;
-    }
+    public void setDeleted(boolean deleted) { this.deleted = deleted; }
 
-    public String getNumber() {
-        return number;
-    }
+    public String getNumber() { return number; }
 
-    public void setNumber(String number) {
-        this.number = number;
-    }
+    public void setNumber(String number) { this.number = number; }
 }

@@ -33,36 +33,29 @@ public class ExcelPOIHelper {
             data.put(i, new ArrayList<String>());
             for (Cell cell : row) {
                 switch (cell.getCellType()) {
-                case STRING:
-                    data.get(i)
-                        .add(cell.getRichStringCellValue()
-                            .getString());
-                    break;
-                case NUMERIC:
-                    if (DateUtil.isCellDateFormatted(cell)) {
-                        data.get(i)
-                            .add(cell.getDateCellValue() + "");
-                    } else {
-                        data.get(i)
-                            .add((int)cell.getNumericCellValue() + "");
-                    }
-                    break;
-                case BOOLEAN:
-                    data.get(i)
-                        .add(cell.getBooleanCellValue() + "");
-                    break;
-                case FORMULA:
-                    data.get(i)
-                        .add(cell.getCellFormula() + "");
-                    break;
-                default:
-                    data.get(i)
-                        .add(" ");
+                    case STRING:
+                        data.get(i).add(cell.getRichStringCellValue().getString());
+                        break;
+                    case NUMERIC:
+                        if (DateUtil.isCellDateFormatted(cell)) {
+                            data.get(i).add(cell.getDateCellValue() + "");
+                        } else {
+                            data.get(i).add((int) cell.getNumericCellValue() + "");
+                        }
+                        break;
+                    case BOOLEAN:
+                        data.get(i).add(cell.getBooleanCellValue() + "");
+                        break;
+                    case FORMULA:
+                        data.get(i).add(cell.getCellFormula() + "");
+                        break;
+                    default:
+                        data.get(i).add(" ");
                 }
             }
             i++;
         }
-        if (workbook != null){
+        if (workbook != null) {
             workbook.close();
         }
         return data;
@@ -117,9 +110,9 @@ public class ExcelPOIHelper {
             workbook.write(outputStream);
         } finally {
             if (workbook != null) {
-               
-                    workbook.close();
-               
+
+                workbook.close();
+
             }
         }
     }

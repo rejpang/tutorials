@@ -17,7 +17,7 @@ public class SetRecursiveCombinationGenerator {
      */
     public List<int[]> generate(int n, int r) {
         List<int[]> combinations = new ArrayList<>();
-        helper(combinations, new int[r], 0, n-1, 0);
+        helper(combinations, new int[r], 0, n - 1, 0);
         return combinations;
     }
 

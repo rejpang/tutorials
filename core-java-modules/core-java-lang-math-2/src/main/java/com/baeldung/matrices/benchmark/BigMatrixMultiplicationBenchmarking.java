@@ -23,6 +23,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 public class BigMatrixMultiplicationBenchmarking {
+
     private static final int DEFAULT_FORKS = 2;
     private static final int DEFAULT_WARMUP_ITERATIONS = 5;
     private static final int DEFAULT_MEASUREMENT_ITERATIONS = 10;
@@ -30,13 +31,7 @@ public class BigMatrixMultiplicationBenchmarking {
     public static void main(String[] args) throws Exception {
         Map<String, String> parameters = parseParameters(args);
 
-        ChainedOptionsBuilder builder = new OptionsBuilder()
-          .include(BigMatrixMultiplicationBenchmarking.class.getSimpleName())
-          .mode(Mode.AverageTime)
-          .forks(forks(parameters))
-          .warmupIterations(warmupIterations(parameters))
-          .measurementIterations(measurementIterations(parameters))
-          .timeUnit(TimeUnit.SECONDS);
+        ChainedOptionsBuilder builder = new OptionsBuilder().include(BigMatrixMultiplicationBenchmarking.class.getSimpleName()).mode(Mode.AverageTime).forks(forks(parameters)).warmupIterations(warmupIterations(parameters)).measurementIterations(measurementIterations(parameters)).timeUnit(TimeUnit.SECONDS);
 
         parameters.forEach(builder::param);
 
@@ -44,12 +39,10 @@ public class BigMatrixMultiplicationBenchmarking {
     }
 
     private static Map<String, String> parseParameters(String[] args) {
-        return Arrays.stream(args)
-          .map(arg -> arg.split("="))
-          .collect(Collectors.toMap(
-            arg -> arg[0],
-            arg -> arg[1]
-          ));
+        return Arrays.stream(args).map(arg -> arg.split("=")).collect(Collectors.toMap(
+                                                                                       arg -> arg[0],
+                                                                                       arg -> arg[1]
+        ));
     }
 
     private static int forks(Map<String, String> parameters) {

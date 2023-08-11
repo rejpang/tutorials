@@ -19,14 +19,14 @@ import com.baeldung.hibernate.pojo.inheritance.Pen;
 import com.baeldung.hibernate.pojo.inheritance.Pet;
 
 public class InheritanceMappingIntegrationTest {
+
     private Session session;
 
     private Transaction transaction;
 
     @Before
     public void setUp() throws IOException {
-        session = HibernateUtil.getSessionFactory()
-            .openSession();
+        session = HibernateUtil.getSessionFactory().openSession();
         transaction = session.beginTransaction();
     }
 
@@ -43,9 +43,7 @@ public class InheritanceMappingIntegrationTest {
         Pen pen = new Pen(2, "my pen", "blue");
         session.save(pen);
 
-        assertThat(session.createQuery("from MyProduct")
-            .getResultList()
-            .size()).isEqualTo(2);
+        assertThat(session.createQuery("from MyProduct").getResultList().size()).isEqualTo(2);
     }
 
     @Test
@@ -53,9 +51,7 @@ public class InheritanceMappingIntegrationTest {
         MyEmployee emp = new MyEmployee(1, "john", "baeldung");
         session.save(emp);
 
-        assertThat(session.createQuery("from com.baeldung.hibernate.pojo.inheritance.Person")
-            .getResultList()
-            .size()).isEqualTo(1);
+        assertThat(session.createQuery("from com.baeldung.hibernate.pojo.inheritance.Person").getResultList().size()).isEqualTo(1);
     }
 
     @Test
@@ -63,9 +59,7 @@ public class InheritanceMappingIntegrationTest {
         Pet pet = new Pet(1, "dog", "lassie");
         session.save(pet);
 
-        assertThat(session.createQuery("from Animal")
-            .getResultList()
-            .size()).isEqualTo(1);
+        assertThat(session.createQuery("from Animal").getResultList().size()).isEqualTo(1);
     }
 
     @Test
@@ -73,21 +67,17 @@ public class InheritanceMappingIntegrationTest {
         Car car = new Car(1, "audi", "xyz");
         session.save(car);
 
-        assertThat(session.createQuery("from Vehicle")
-            .getResultList()
-            .size()).isEqualTo(1);
+        assertThat(session.createQuery("from Vehicle").getResultList().size()).isEqualTo(1);
     }
 
     @Test
     public void givenSubclasses_whenQueryNonMappedInterface_thenOk() {
         Bag bag = new Bag(1, "large");
         session.save(bag);
-        
+
         Laptop laptop = new Laptop(1L, "Dell");
         session.save(laptop);
 
-        assertThat(session.createQuery("from com.baeldung.hibernate.pojo.inheritance.Item")
-            .getResultList()
-            .size()).isEqualTo(1);
+        assertThat(session.createQuery("from com.baeldung.hibernate.pojo.inheritance.Item").getResultList().size()).isEqualTo(1);
     }
 }

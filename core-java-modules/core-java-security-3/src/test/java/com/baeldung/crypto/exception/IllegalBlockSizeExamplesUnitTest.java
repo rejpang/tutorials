@@ -31,22 +31,24 @@ public class IllegalBlockSizeExamplesUnitTest {
 
     @Test
     public void whenEncryptingPlainTextWithoutPadding_thenIllegalBlockSizeExceptionIsThrown()
-            throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException,
-            BadPaddingException {
+                                                                                              throws NoSuchAlgorithmException, NoSuchPaddingException,
+                                                                                              InvalidKeyException, IllegalBlockSizeException,
+                                                                                              BadPaddingException {
         Assert.assertThrows(IllegalBlockSizeException.class,
-                () -> IllegalBlockSizeExamples.encryptWithoutPadding(key, plainTextBytes));
+                            () -> IllegalBlockSizeExamples.encryptWithoutPadding(key, plainTextBytes));
     }
 
     @Test
     public void whenDecryptingCipherTextThatWasNotEncrypted_thenIllegalBlockSizeExceptionIsThrown()
-            throws GeneralSecurityException {
+                                                                                                    throws GeneralSecurityException {
         Assert.assertThrows(IllegalBlockSizeException.class,
-                () -> IllegalBlockSizeExamples.decryptTextThatIsNotEncrypted(key));
+                            () -> IllegalBlockSizeExamples.decryptTextThatIsNotEncrypted(key));
     }
 
     @Test
     public void whenEncryptingAndDecryptingWithPadding_thenNoExceptionThrown() throws NoSuchAlgorithmException,
-            NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
+                                                                               NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException,
+                                                                               BadPaddingException {
         byte[] cipherTextBytes = CryptoUtils.encryptWithPadding(key, plainTextBytes);
 
         byte[] decryptedBytes = CryptoUtils.decryptWithPadding(key, cipherTextBytes);

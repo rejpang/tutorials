@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class MissingReturnStatement {
+
     public static void main(String[] args) {
         int a = -12;
         int result = pow(a);
@@ -34,8 +35,7 @@ public class MissingReturnStatement {
 
     public static Map<String, Integer> createDictionary() {
         List<String> words = Arrays.asList("Hello", "World");
-        return words.stream()
-            .collect(Collectors.toMap(s -> s, s -> 1));
+        return words.stream().collect(Collectors.toMap(s -> s, s -> 1));
     }
 
 }

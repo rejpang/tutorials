@@ -20,9 +20,7 @@ public class FooService {
     }
 
     @Autowired
-    public void setFormatter(@FormatterType("Foo") Formatter formatter) {
-        this.formatter = formatter;
-    }
+    public void setFormatter(@FormatterType("Foo") Formatter formatter) { this.formatter = formatter; }
 
     public String doStuff() {
         return formatter.format();

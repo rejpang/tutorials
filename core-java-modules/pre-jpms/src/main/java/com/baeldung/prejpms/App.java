@@ -37,13 +37,10 @@ public class App {
         try {
             StringBuffer sbStack = new StringBuffer();
             AtomicInteger i = new AtomicInteger(0);
-            StackWalker.getInstance((Option.RETAIN_CLASS_REFERENCE))
-              .walk(s -> s.map(StackFrame::getDeclaringClass)
-                .map(e -> {
-                    i.getAndIncrement();
-                    return e.getName();
-                }))
-              .forEach(name -> sbStack.append(String.format("%d. %s \n", i.get(), name)));
+            StackWalker.getInstance((Option.RETAIN_CLASS_REFERENCE)).walk(s -> s.map(StackFrame::getDeclaringClass).map(e -> {
+                i.getAndIncrement();
+                return e.getName();
+            })).forEach(name -> sbStack.append(String.format("%d. %s \n", i.get(), name)));
             LOGGER.info("2. Call Stack:\n{}", sbStack);
         } catch (Throwable e) {
             LOGGER.error(e.toString());
@@ -52,8 +49,7 @@ public class App {
 
     private static void getXmlFromObject(Book book) {
         try {
-            Marshaller marshallerObj = JAXBContext.newInstance(Book.class)
-              .createMarshaller();
+            Marshaller marshallerObj = JAXBContext.newInstance(Book.class).createMarshaller();
             marshallerObj.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
             StringWriter sw = new StringWriter();
@@ -67,8 +63,7 @@ public class App {
 
     private static void getBase64EncodedString(String inputString) {
         try {
-            String encodedString = new String(Base64.getEncoder()
-              .encode(inputString.getBytes()));
+            String encodedString = new String(Base64.getEncoder().encode(inputString.getBytes()));
             LOGGER.info("4. Base Encoded String: {}", encodedString);
         } catch (Throwable e) {
             LOGGER.error(e.toString());

@@ -14,13 +14,11 @@ import com.fasterxml.jackson.databind.jsontype.BasicPolymorphicTypeValidator;
 import com.fasterxml.jackson.databind.jsontype.PolymorphicTypeValidator;
 
 public class TypeInfoInclusionUnitTest {
+
     @Test
     public void givenTypeInfo_whenAnnotatingGlobally_thenTypesAreCorrectlyRecovered() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        PolymorphicTypeValidator ptv = BasicPolymorphicTypeValidator.builder()
-            .allowIfSubType("com.baeldung.jackson.inheritance")
-            .allowIfSubType("java.util.ArrayList")
-            .build();
+        PolymorphicTypeValidator ptv = BasicPolymorphicTypeValidator.builder().allowIfSubType("com.baeldung.jackson.inheritance").allowIfSubType("java.util.ArrayList").build();
         mapper.activateDefaultTyping(ptv, ObjectMapper.DefaultTyping.NON_FINAL);
 
         TypeInfoStructure.Car car = new TypeInfoStructure.Car("Mercedes-Benz", "S500", 5, 250.0);
@@ -36,10 +34,8 @@ public class TypeInfoInclusionUnitTest {
         String jsonDataString = mapper.writeValueAsString(serializedFleet);
         TypeInfoStructure.Fleet deserializedFleet = mapper.readValue(jsonDataString, TypeInfoStructure.Fleet.class);
 
-        assertThat(deserializedFleet.getVehicles()
-            .get(0), instanceOf(TypeInfoStructure.Car.class));
-        assertThat(deserializedFleet.getVehicles()
-            .get(1), instanceOf(TypeInfoStructure.Truck.class));
+        assertThat(deserializedFleet.getVehicles().get(0), instanceOf(TypeInfoStructure.Car.class));
+        assertThat(deserializedFleet.getVehicles().get(1), instanceOf(TypeInfoStructure.Truck.class));
     }
 
     @Test
@@ -59,9 +55,7 @@ public class TypeInfoInclusionUnitTest {
         String jsonDataString = mapper.writeValueAsString(serializedFleet);
         TypeInfoAnnotatedStructure.Fleet deserializedFleet = mapper.readValue(jsonDataString, TypeInfoAnnotatedStructure.Fleet.class);
 
-        assertThat(deserializedFleet.getVehicles()
-            .get(0), instanceOf(TypeInfoAnnotatedStructure.Car.class));
-        assertThat(deserializedFleet.getVehicles()
-            .get(1), instanceOf(TypeInfoAnnotatedStructure.Truck.class));
+        assertThat(deserializedFleet.getVehicles().get(0), instanceOf(TypeInfoAnnotatedStructure.Car.class));
+        assertThat(deserializedFleet.getVehicles().get(1), instanceOf(TypeInfoAnnotatedStructure.Truck.class));
     }
 }

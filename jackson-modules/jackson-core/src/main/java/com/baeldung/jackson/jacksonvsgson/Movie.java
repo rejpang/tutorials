@@ -24,27 +24,15 @@ public class Movie {
         return "Movie [imdbId=" + imdbId + ", director=" + director + ", actors=" + actors + "]";
     }
 
-    public String getImdbId() {
-        return imdbId;
-    }
+    public String getImdbId() { return imdbId; }
 
-    public void setImdbId(String imdbId) {
-        this.imdbId = imdbId;
-    }
+    public void setImdbId(String imdbId) { this.imdbId = imdbId; }
 
-    public String getDirector() {
-        return director;
-    }
+    public String getDirector() { return director; }
 
-    public void setDirector(String director) {
-        this.director = director;
-    }
+    public void setDirector(String director) { this.director = director; }
 
-    public List<ActorJackson> getActors() {
-        return actors;
-    }
+    public List<ActorJackson> getActors() { return actors; }
 
-    public void setActors(List<ActorJackson> actors) {
-        this.actors = actors;
-    }
+    public void setActors(List<ActorJackson> actors) { this.actors = actors; }
 }

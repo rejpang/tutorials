@@ -19,8 +19,6 @@ public class SwaggerConfig {
 
     @Bean
     public OpenAPI openAPI() {
-        return new OpenAPI().info(new Info().title("SpringDoc Disable SwaggerUI example")
-            .description("SpringDoc Disable SwaggerUI application")
-            .version("v0.0.1"));
+        return new OpenAPI().info(new Info().title("SpringDoc Disable SwaggerUI example").description("SpringDoc Disable SwaggerUI application").version("v0.0.1"));
     }
 }

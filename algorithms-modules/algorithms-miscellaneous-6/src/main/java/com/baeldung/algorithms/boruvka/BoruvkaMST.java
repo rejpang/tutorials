@@ -6,8 +6,7 @@ import com.google.common.graph.ValueGraphBuilder;
 
 public class BoruvkaMST {
 
-    private static MutableValueGraph<Integer, Integer> mst = ValueGraphBuilder.undirected()
-        .build();
+    private static MutableValueGraph<Integer, Integer> mst = ValueGraphBuilder.undirected().build();
     private static int totalWeight;
 
     public BoruvkaMST(MutableValueGraph<Integer, Integer> graph) {
@@ -18,7 +17,7 @@ public class BoruvkaMST {
 
         // repeat at most log N times or until we have N-1 edges
         for (int t = 1; t < size && mst.edges().size() < size - 1; t = t + t) {
-            
+
             EndpointPair<Integer>[] closestEdgeArray = new EndpointPair[size];
 
             // foreach tree in graph, find closest edge
@@ -69,13 +68,9 @@ public class BoruvkaMST {
         }
     }
 
-    public MutableValueGraph<Integer, Integer> getMST() {
-        return mst;
-    }
+    public MutableValueGraph<Integer, Integer> getMST() { return mst; }
 
-    public int getTotalWeight() {
-        return totalWeight;
-    }
+    public int getTotalWeight() { return totalWeight; }
 
     public String toString() {
         return "MST: " + mst.toString() + " | Total Weight: " + totalWeight;

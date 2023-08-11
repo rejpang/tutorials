@@ -1,7 +1,9 @@
 package com.baeldung.jackson.inheritance;
 
 public class IgnoranceMixinOrIntrospection {
+
     public static abstract class Vehicle {
+
         private String make;
         private String model;
 
@@ -13,24 +15,17 @@ public class IgnoranceMixinOrIntrospection {
             this.model = model;
         }
 
-        public String getMake() {
-            return make;
-        }
+        public String getMake() { return make; }
 
-        public void setMake(String make) {
-            this.make = make;
-        }
+        public void setMake(String make) { this.make = make; }
 
-        public String getModel() {
-            return model;
-        }
+        public String getModel() { return model; }
 
-        public void setModel(String model) {
-            this.model = model;
-        }
+        public void setModel(String model) { this.model = model; }
     }
 
     public static abstract class Car extends Vehicle {
+
         private int seatingCapacity;
         private double topSpeed;
 
@@ -43,24 +38,17 @@ public class IgnoranceMixinOrIntrospection {
             this.topSpeed = topSpeed;
         }
 
-        public int getSeatingCapacity() {
-            return seatingCapacity;
-        }
+        public int getSeatingCapacity() { return seatingCapacity; }
 
-        public void setSeatingCapacity(int seatingCapacity) {
-            this.seatingCapacity = seatingCapacity;
-        }
+        public void setSeatingCapacity(int seatingCapacity) { this.seatingCapacity = seatingCapacity; }
 
-        public double getTopSpeed() {
-            return topSpeed;
-        }
+        public double getTopSpeed() { return topSpeed; }
 
-        public void setTopSpeed(double topSpeed) {
-            this.topSpeed = topSpeed;
-        }
+        public void setTopSpeed(double topSpeed) { this.topSpeed = topSpeed; }
     }
 
     public static class Sedan extends Car {
+
         public Sedan() {
         }
 
@@ -70,6 +58,7 @@ public class IgnoranceMixinOrIntrospection {
     }
 
     public static class Crossover extends Car {
+
         private double towingCapacity;
 
         public Crossover() {
@@ -80,12 +69,8 @@ public class IgnoranceMixinOrIntrospection {
             this.towingCapacity = towingCapacity;
         }
 
-        public double getTowingCapacity() {
-            return towingCapacity;
-        }
+        public double getTowingCapacity() { return towingCapacity; }
 
-        public void setTowingCapacity(double towingCapacity) {
-            this.towingCapacity = towingCapacity;
-        }
+        public void setTowingCapacity(double towingCapacity) { this.towingCapacity = towingCapacity; }
     }
 }

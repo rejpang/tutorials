@@ -54,8 +54,7 @@ public class CellValueAndNotFormulaHelper {
         Workbook workbook = new XSSFWorkbook(inputStream);
 
         Sheet sheet = workbook.getSheetAt(0);
-        FormulaEvaluator evaluator = workbook.getCreationHelper()
-            .createFormulaEvaluator();
+        FormulaEvaluator evaluator = workbook.getCreationHelper().createFormulaEvaluator();
 
         CellAddress cellAddress = new CellAddress(cellLocation);
         Row row = sheet.getRow(cellAddress.getRow());

@@ -17,6 +17,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "item")
 public class Item {
+
     @Id
     @GeneratedValue
     @Column(name = "id")
@@ -36,56 +37,38 @@ public class Item {
     @Column(name = "created_on")
     private Date createdOn;
 
-    public int getId() {
-        return id;
-    }
+    public int getId() { return id; }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    public void setId(int id) { this.id = id; }
 
-    public String getItemName() {
-        return itemName;
-    }
+    public String getItemName() { return itemName; }
 
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
-    }
+    public void setItemName(String itemName) { this.itemName = itemName; }
 
-    public double getItemPrice() {
-        return itemPrice;
-    }
+    public double getItemPrice() { return itemPrice; }
 
-    public void setItemPrice(double itemPrice) {
-        this.itemPrice = itemPrice;
-    }
+    public void setItemPrice(double itemPrice) { this.itemPrice = itemPrice; }
 
-    public ItemType getItemType() {
-        return itemType;
-    }
+    public ItemType getItemType() { return itemType; }
 
-    public void setItemType(ItemType itemType) {
-        this.itemType = itemType;
-    }
+    public void setItemType(ItemType itemType) { this.itemType = itemType; }
 
-    public Date getCreatedOn() {
-        return createdOn;
-    }
+    public Date getCreatedOn() { return createdOn; }
 
-    public void setCreatedOn(Date createdOn) {
-        this.createdOn = createdOn;
-    }
+    public void setCreatedOn(Date createdOn) { this.createdOn = createdOn; }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
         Item item = (Item) o;
         return id == item.id &&
-                Double.compare(item.itemPrice, itemPrice) == 0 &&
-                Objects.equals(itemName, item.itemName) &&
-                itemType == item.itemType &&
-                Objects.equals(createdOn, item.createdOn);
+            Double.compare(item.itemPrice, itemPrice) == 0 &&
+            Objects.equals(itemName, item.itemName) &&
+            itemType == item.itemType &&
+            Objects.equals(createdOn, item.createdOn);
     }
 
     @Override

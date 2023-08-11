@@ -6,6 +6,7 @@ import jakarta.persistence.PrimaryKeyJoinColumn;
 @Entity
 @PrimaryKeyJoinColumn(name = "petId")
 public class Pet extends Animal {
+
     private String name;
 
     public Pet() {
@@ -16,12 +17,8 @@ public class Pet extends Animal {
         this.name = name;
     }
 
-    public String getName() {
-        return name;
-    }
+    public String getName() { return name; }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public void setName(String name) { this.name = name; }
 
 }

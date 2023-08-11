@@ -13,6 +13,7 @@ import org.junit.Test;
 import org.xml.sax.SAXException;
 
 public class TikaUnitTest {
+
     @Test
     public void whenUsingDetector_thenDocumentTypeIsReturned() throws IOException {
         InputStream stream = this.getClass().getClassLoader().getResourceAsStream("tika.txt");

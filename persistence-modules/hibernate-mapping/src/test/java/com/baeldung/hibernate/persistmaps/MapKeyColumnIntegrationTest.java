@@ -19,6 +19,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 public class MapKeyColumnIntegrationTest {
+
     private static SessionFactory sessionFactory;
 
     private Session session;
@@ -40,7 +41,6 @@ public class MapKeyColumnIntegrationTest {
         itemPriceMap.put("Wrangler Jeans", 150.0);
         itemPriceMap.put("Lee Jeans", 180.0);
 
-
         Order order = new Order();
         order.setItemPriceMap(itemPriceMap);
 
@@ -51,8 +51,7 @@ public class MapKeyColumnIntegrationTest {
     }
 
     private void assertInsertedData() {
-        @SuppressWarnings("unchecked")
-        List<Order> orderList = session.createQuery("FROM Order").list();
+        @SuppressWarnings("unchecked") List<Order> orderList = session.createQuery("FROM Order").list();
 
         assertNotNull(orderList);
         assertEquals(1, orderList.size());

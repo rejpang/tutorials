@@ -20,6 +20,7 @@ import static java.lang.String.format;
 @RestController
 @RequestMapping("/api")
 public class BakeryController {
+
     private final static Logger LOG = LoggerFactory.getLogger(BakeryController.class);
     private final static Long LONG_POLLING_TIMEOUT = 5000L;
 

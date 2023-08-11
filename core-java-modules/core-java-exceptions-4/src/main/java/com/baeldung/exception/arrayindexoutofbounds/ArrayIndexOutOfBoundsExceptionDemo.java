@@ -7,7 +7,7 @@ public class ArrayIndexOutOfBoundsExceptionDemo {
 
     public static void main(String[] args) {
         int[] numbers = new int[] { 1, 2, 3, 4, 5 };
-        
+
         getArrayElementAtIndex(numbers, 5);
         getListElementAtIndex(5);
         addArrayElementsUsingLoop(numbers);

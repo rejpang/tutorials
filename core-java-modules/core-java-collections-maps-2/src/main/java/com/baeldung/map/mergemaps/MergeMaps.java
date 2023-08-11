@@ -29,48 +29,45 @@ public class MergeMaps {
 
     private static void streamMerge() {
 
-        Map<String, Employee> map3 = map2.entrySet()
-                .stream()
-                .collect(
-                        Collectors.toMap(
-                                Map.Entry::getKey,
-                                Map.Entry::getValue,
-                                (v1, v2) -> new Employee(v1.getId(), v2.getName()),
-                                () -> new HashMap<>(map1)
-                        )
-                );
+        Map<String, Employee> map3 = map2.entrySet().stream().collect(
+                                                                      Collectors.toMap(
+                                                                                       Map.Entry::getKey,
+                                                                                       Map.Entry::getValue,
+                                                                                       (v1, v2) -> new Employee(v1.getId(), v2.getName()),
+                                                                                       () -> new HashMap<>(map1)
+                                                                      )
+        );
 
         System.out.println(map3);
     }
 
     private static void streamEx() {
-        Map<String, Employee> map3 = EntryStream.of(map1)
-                .append(EntryStream.of(map2))
-                .toMap((e1, e2) -> e1);
+        Map<String, Employee> map3 = EntryStream.of(map1).append(EntryStream.of(map2)).toMap((e1, e2) -> e1);
 
         System.out.println(map3);
 
     }
 
     private static void streamOf() {
-        Map<String, Employee> map3 = Stream.of(map1, map2)
-                .flatMap(map -> map.entrySet().stream())
-                .collect(
-                        Collectors.toMap(
-                                Map.Entry::getKey,
-                                Map.Entry::getValue,
-                                (v1, v2) -> new Employee(v1.getId(), v2.getName())
-                        )
-                );
+        Map<String, Employee> map3 = Stream.of(map1, map2).flatMap(map -> map.entrySet().stream()).collect(
+                                                                                                           Collectors.toMap(
+                                                                                                                            Map.Entry::getKey,
+                                                                                                                            Map.Entry::getValue,
+                                                                                                                            (v1, v2) -> new Employee(v1.getId(),
+                                                                                                                                                     v2.getName())
+                                                                                                           )
+        );
 
         map3.entrySet().forEach(System.out::println);
     }
 
     private static void streamConcat() {
         Map<String, Employee> result = Stream.concat(map1.entrySet().stream(), map2.entrySet().stream()).collect(Collectors.toMap(
-                Map.Entry::getKey,
-                Map.Entry::getValue,
-                (value1, value2) -> new Employee(value2.getId(), value1.getName())
+                                                                                                                                  Map.Entry::getKey,
+                                                                                                                                  Map.Entry::getValue,
+                                                                                                                                  (value1,
+                                                                                                                                   value2) -> new Employee(value2.getId(),
+                                                                                                                                                           value1.getName())
         ));
 
         result.entrySet().forEach(System.out::println);
@@ -80,13 +77,11 @@ public class MergeMaps {
         Map<String, Employee> map3 = new HashMap<>(map1);
 
         map2.forEach(
-                (key, value) -> map3.merge(key, value, (v1, v2) ->
-                        new Employee(v1.getId(), v2.getName()))
+                     (key, value) -> map3.merge(key, value, (v1, v2) -> new Employee(v1.getId(), v2.getName()))
         );
 
         map3.entrySet().forEach(System.out::println);
     }
-
 
     private static void initialize() {
         Employee employee1 = new Employee(1L, "Henry");

@@ -16,11 +16,10 @@ public class VersionController {
 
     @Operation(summary = "Get the currently deployed API version and active Spring profiles")
     @GetMapping("/api/version")
-    public Version getVersion() {
-        return new Version("1.0", environment.getActiveProfiles());
-    }
+    public Version getVersion() { return new Version("1.0", environment.getActiveProfiles()); }
 
     private static class Version {
+
         private final String version;
         private String[] activeProfiles;
 
@@ -29,12 +28,8 @@ public class VersionController {
             this.activeProfiles = activeProfiles;
         }
 
-        public String getVersion() {
-            return version;
-        }
+        public String getVersion() { return version; }
 
-        public String[] getActiveProfiles() {
-            return activeProfiles;
-        }
+        public String[] getActiveProfiles() { return activeProfiles; }
     }
 }

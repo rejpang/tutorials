@@ -35,10 +35,10 @@ public class PrimitiveMaps {
     private static void hppcMap() {
         //Regular maps
         IntLongHashMap intLongHashMap = new IntLongHashMap();
-        intLongHashMap.put(25,1L);
-        intLongHashMap.put(150,Long.MAX_VALUE);
-        intLongHashMap.put(1,0L);
-        
+        intLongHashMap.put(25, 1L);
+        intLongHashMap.put(150, Long.MAX_VALUE);
+        intLongHashMap.put(1, 0L);
+
         intLongHashMap.get(150);
 
         IntObjectMap<BigDecimal> intObjectMap = new IntObjectHashMap<BigDecimal>();
@@ -51,7 +51,7 @@ public class PrimitiveMaps {
         IntLongScatterMap intLongScatterMap = new IntLongScatterMap();
         intLongScatterMap.put(1, 1L);
         intLongScatterMap.put(2, -2L);
-        intLongScatterMap.put(1000,0L);    
+        intLongScatterMap.put(1000, 0L);
 
         intLongScatterMap.get(1000);
 
@@ -61,7 +61,6 @@ public class PrimitiveMaps {
 
         value = intObjectScatterMap.get(2);
     }
-
 
     private static void fastutilMap() {
         Int2BooleanMap int2BooleanMap = new Int2BooleanOpenHashMap();
@@ -73,14 +72,14 @@ public class PrimitiveMaps {
 
         //Lambda style iteration
         Int2BooleanMaps.fastForEach(int2BooleanMap, entry -> {
-            System.out.println(String.format("Key: %d, Value: %b",entry.getIntKey(),entry.getBooleanValue()));
+            System.out.println(String.format("Key: %d, Value: %b", entry.getIntKey(), entry.getBooleanValue()));
         });
 
         //Iterator based loop
         ObjectIterator<Int2BooleanMap.Entry> iterator = Int2BooleanMaps.fastIterator(int2BooleanMap);
-        while(iterator.hasNext()) {
+        while (iterator.hasNext()) {
             Int2BooleanMap.Entry entry = iterator.next();
-            System.out.println(String.format("Key: %d, Value: %b",entry.getIntKey(),entry.getBooleanValue()));
+            System.out.println(String.format("Key: %d, Value: %b", entry.getIntKey(), entry.getBooleanValue()));
 
         }
 
@@ -97,6 +96,5 @@ public class PrimitiveMaps {
         dObject.addToValue("quality", 4.4);
         dObject.addToValue("stability", 0.8);
     }
-
 
 }

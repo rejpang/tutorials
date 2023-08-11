@@ -34,27 +34,15 @@ public class EntityDescription implements Serializable {
         this.entity = entity;
     }
 
-    public Integer getId() {
-        return id;
-    }
+    public Integer getId() { return id; }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    public void setId(Integer id) { this.id = id; }
 
-    public String getDescription() {
-        return description;
-    }
+    public String getDescription() { return description; }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+    public void setDescription(String description) { this.description = description; }
 
-    public Serializable getEntity() {
-        return entity;
-    }
+    public Serializable getEntity() { return entity; }
 
-    public void setEntity(Serializable entity) {
-        this.entity = entity;
-    }
+    public void setEntity(Serializable entity) { this.entity = entity; }
 }

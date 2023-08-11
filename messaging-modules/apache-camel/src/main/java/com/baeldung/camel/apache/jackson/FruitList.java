@@ -6,12 +6,8 @@ public class FruitList {
 
     private List<Fruit> fruits;
 
-    public List<Fruit> getFruits() {
-        return fruits;
-    }
+    public List<Fruit> getFruits() { return fruits; }
 
-    public void setFruits(List<Fruit> fruits) {
-        this.fruits = fruits;
-    }
+    public void setFruits(List<Fruit> fruits) { this.fruits = fruits; }
 
 }

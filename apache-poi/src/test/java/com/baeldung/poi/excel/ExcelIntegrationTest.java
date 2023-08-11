@@ -33,22 +33,18 @@ public class ExcelIntegrationTest {
     public void whenParsingPOIExcelFile_thenCorrect() throws IOException {
         Map<Integer, List<String>> data = excelPOIHelper.readExcel(fileLocation);
 
-        assertEquals("Name", data.get(0)
-            .get(0));
-        assertEquals("Age", data.get(0)
-            .get(1));
+        assertEquals("Name", data.get(0).get(0));
+        assertEquals("Age", data.get(0).get(1));
 
-        assertEquals("John Smith", data.get(1)
-            .get(0));
-        assertEquals("20", data.get(1)
-            .get(1));
+        assertEquals("John Smith", data.get(1).get(0));
+        assertEquals("20", data.get(1).get(1));
     }
 
     @After
-    public void cleanup(){
+    public void cleanup() {
         File testFile = new File(fileLocation);
         if (testFile.exists()) {
-           testFile.delete();     
+            testFile.delete();
         }
     }
 }

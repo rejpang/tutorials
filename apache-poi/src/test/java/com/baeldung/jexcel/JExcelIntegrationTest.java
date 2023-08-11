@@ -36,22 +36,18 @@ public class JExcelIntegrationTest {
     public void whenParsingJExcelFile_thenCorrect() throws IOException, BiffException {
         Map<Integer, List<String>> data = jExcelHelper.readJExcel(fileLocation);
 
-        assertEquals("Name", data.get(0)
-            .get(0));
-        assertEquals("Age", data.get(0)
-            .get(1));
+        assertEquals("Name", data.get(0).get(0));
+        assertEquals("Age", data.get(0).get(1));
 
-        assertEquals("John Smith", data.get(2)
-            .get(0));
-        assertEquals("20", data.get(2)
-            .get(1));
+        assertEquals("John Smith", data.get(2).get(0));
+        assertEquals("20", data.get(2).get(1));
     }
 
     @After
-    public void cleanup(){
+    public void cleanup() {
         File testFile = new File(fileLocation);
         if (testFile.exists()) {
-           testFile.delete();     
+            testFile.delete();
         }
     }
 }

@@ -3,7 +3,6 @@ package com.baeldung.algorithms.mercator;
 import org.junit.Assert;
 import org.junit.Test;
 
-
 public class EllipticalMercatorUnitTest {
 
     @Test

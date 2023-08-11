@@ -15,7 +15,5 @@ public class BankPayment implements Bank {
     }
 
     @Override
-    public List<Object> getPayments() {
-        return null;
-    }
+    public List<Object> getPayments() { return null; }
 }

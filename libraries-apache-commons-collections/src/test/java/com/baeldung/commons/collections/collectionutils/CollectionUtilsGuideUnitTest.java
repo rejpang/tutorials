@@ -56,6 +56,7 @@ public class CollectionUtilsGuideUnitTest {
     @Test
     public void givenListOfCustomers_whenTransformed_thenListOfAddress() {
         Collection<Address> addressCol = CollectionUtils.collect(list1, new Transformer<Customer, Address>() {
+
             public Address transform(Customer customer) {
                 return new Address(customer.getLocality(), customer.getCity(), customer.getZip());
             }
@@ -70,6 +71,7 @@ public class CollectionUtilsGuideUnitTest {
     public void givenCustomerList_whenFiltered_thenCorrectSize() {
 
         boolean isModified = CollectionUtils.filter(linkedList1, new Predicate<Customer>() {
+
             public boolean evaluate(Customer customer) {
                 return Arrays.asList("Daniel", "Kyle").contains(customer.getName());
             }

@@ -11,6 +11,7 @@ import java.util.stream.DoubleStream;
 
 @State(Scope.Benchmark)
 public class BigMatrixProvider {
+
     @Param({})
     private int matrixSize;
     private double[][] firstMatrix;
@@ -36,11 +37,7 @@ public class BigMatrixProvider {
         return result;
     }
 
-    public double[][] getFirstMatrix() {
-        return firstMatrix;
-    }
+    public double[][] getFirstMatrix() { return firstMatrix; }
 
-    public double[][] getSecondMatrix() {
-        return secondMatrix;
-    }
+    public double[][] getSecondMatrix() { return secondMatrix; }
 }

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class BeanFactoryDynamicAutowireService {
+
     private static final String SERVICE_NAME_SUFFIX = "regionService";
     private final BeanFactory beanFactory;
 

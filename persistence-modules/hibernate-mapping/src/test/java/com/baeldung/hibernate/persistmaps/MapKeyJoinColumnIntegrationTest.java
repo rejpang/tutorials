@@ -23,6 +23,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 public class MapKeyJoinColumnIntegrationTest {
+
     private static SessionFactory sessionFactory;
 
     private Session session;
@@ -50,7 +51,6 @@ public class MapKeyJoinColumnIntegrationTest {
         item1.setCreatedOn(Date.from(Instant.ofEpochSecond(1554926573)));
         item1.setSeller(seller1);
 
-
         Seller seller2 = new Seller();
         seller2.setSellerName("Amazon");
 
@@ -68,7 +68,6 @@ public class MapKeyJoinColumnIntegrationTest {
         Order order = new Order();
         order.setSellerItemMap(itemSellerMap);
 
-
         session.persist(order);
         session.getTransaction().commit();
 
@@ -76,8 +75,7 @@ public class MapKeyJoinColumnIntegrationTest {
     }
 
     private void assertInsertedData(Seller seller1, Item expectedItem1, Seller seller2, Item expectedItem2) {
-        @SuppressWarnings("unchecked")
-        List<Order> orderList = session.createQuery("FROM Order").list();
+        @SuppressWarnings("unchecked") List<Order> orderList = session.createQuery("FROM Order").list();
 
         assertNotNull(orderList);
         assertEquals(1, orderList.size());
@@ -102,4 +100,3 @@ public class MapKeyJoinColumnIntegrationTest {
         sessionFactory.close();
     }
 }
-

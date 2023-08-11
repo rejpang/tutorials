@@ -95,7 +95,8 @@ public class BagUnitTest {
 
     @Test
     public void givenSortedBag_whenDuplicateElementsAdded_thenSort() {
-        SynchronizedSortedBag<Integer> bag = SynchronizedSortedBag.synchronizedSortedBag(new TreeBag<>(Arrays.asList(new Integer[] { 7, 5, 1, 7, 2, 3, 3, 3, 1, 4, 7 })));
+        SynchronizedSortedBag<Integer> bag = SynchronizedSortedBag.synchronizedSortedBag(new TreeBag<>(Arrays.asList(new Integer[] { 7, 5, 1, 7, 2, 3, 3, 3, 1,
+            4, 7 })));
 
         assertThat(bag.first(), equalTo(1));
         assertThat(bag.getCount(bag.first()), equalTo(2));

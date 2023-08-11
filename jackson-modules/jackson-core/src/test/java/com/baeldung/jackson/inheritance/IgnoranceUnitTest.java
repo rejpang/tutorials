@@ -16,7 +16,9 @@ import com.fasterxml.jackson.databind.introspect.AnnotatedMember;
 import com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
 
 public class IgnoranceUnitTest {
+
     private static abstract class CarMixIn {
+
         @JsonIgnore
         public String make;
         @JsonIgnore
@@ -24,10 +26,12 @@ public class IgnoranceUnitTest {
     }
 
     private static class IgnoranceIntrospector extends JacksonAnnotationIntrospector {
+
         private static final long serialVersionUID = 1422295680188892323L;
 
         public boolean hasIgnoreMarker(AnnotatedMember m) {
-            return m.getDeclaringClass() == IgnoranceMixinOrIntrospection.Vehicle.class && m.getName() == "model" || m.getDeclaringClass() == IgnoranceMixinOrIntrospection.Car.class || m.getName() == "towingCapacity" || super.hasIgnoreMarker(m);
+            return m.getDeclaringClass() == IgnoranceMixinOrIntrospection.Vehicle.class && m.getName() == "model" || m.getDeclaringClass() ==
+                IgnoranceMixinOrIntrospection.Car.class || m.getName() == "towingCapacity" || super.hasIgnoreMarker(m);
         }
     }
 

@@ -17,9 +17,7 @@ public class WebClientConfiguration {
 
     @Bean
     public WebClient webClient() {
-        return WebClient.builder()
-          .baseUrl("http://localhost:" + serverPort)
-          .clientConnector(new ReactorClientHttpConnector(HttpClient.create().responseTimeout(Duration.ofMillis(250))))
-          .build();
+        return WebClient.builder().baseUrl("http://localhost:" + serverPort).clientConnector(new ReactorClientHttpConnector(HttpClient.create().responseTimeout(
+                                                                                                                                                                Duration.ofMillis(250)))).build();
     }
 }

@@ -9,53 +9,29 @@ public class Customer implements Comparable<Customer> {
     private String city;
     private String zip;
 
-    public Integer getId() {
-        return id;
-    }
+    public Integer getId() { return id; }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    public void setId(Integer id) { this.id = id; }
 
-    public String getName() {
-        return name;
-    }
+    public String getName() { return name; }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public void setName(String name) { this.name = name; }
 
-    public Long getPhone() {
-        return phone;
-    }
+    public Long getPhone() { return phone; }
 
-    public void setPhone(Long phone) {
-        this.phone = phone;
-    }
+    public void setPhone(Long phone) { this.phone = phone; }
 
-    public String getLocality() {
-        return locality;
-    }
+    public String getLocality() { return locality; }
 
-    public void setLocality(String locality) {
-        this.locality = locality;
-    }
+    public void setLocality(String locality) { this.locality = locality; }
 
-    public String getCity() {
-        return city;
-    }
+    public String getCity() { return city; }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
+    public void setCity(String city) { this.city = city; }
 
-    public String getZip() {
-        return zip;
-    }
+    public String getZip() { return zip; }
 
-    public void setZip(String zip) {
-        this.zip = zip;
-    }
+    public void setZip(String zip) { this.zip = zip; }
 
     public Customer(Integer id, String name, Long phone, String locality, String city, String zip) {
         super();

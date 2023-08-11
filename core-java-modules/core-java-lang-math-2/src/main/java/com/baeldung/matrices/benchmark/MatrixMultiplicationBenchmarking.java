@@ -22,15 +22,7 @@ import java.util.concurrent.TimeUnit;
 public class MatrixMultiplicationBenchmarking {
 
     public static void main(String[] args) throws Exception {
-        Options opt = new OptionsBuilder()
-          .include(MatrixMultiplicationBenchmarking.class.getSimpleName())
-          .exclude(BigMatrixMultiplicationBenchmarking.class.getSimpleName())
-          .mode(Mode.AverageTime)
-          .forks(2)
-          .warmupIterations(10)
-          .measurementIterations(10)
-          .timeUnit(TimeUnit.MICROSECONDS)
-          .build();
+        Options opt = new OptionsBuilder().include(MatrixMultiplicationBenchmarking.class.getSimpleName()).exclude(BigMatrixMultiplicationBenchmarking.class.getSimpleName()).mode(Mode.AverageTime).forks(2).warmupIterations(10).measurementIterations(10).timeUnit(TimeUnit.MICROSECONDS).build();
 
         new Runner(opt).run();
     }

@@ -14,13 +14,14 @@ import java.util.Map;
 
 @Configuration
 public class EndpointsListener implements ApplicationListener<ContextRefreshedEvent> {
+
     private final Logger LOGGER = LoggerFactory.getLogger("EndpointsListener.class");
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
         ApplicationContext applicationContext = event.getApplicationContext();
-        RequestMappingHandlerMapping requestMappingHandlerMapping = applicationContext
-          .getBean("requestMappingHandlerMapping", RequestMappingHandlerMapping.class);
+        RequestMappingHandlerMapping requestMappingHandlerMapping = applicationContext.getBean("requestMappingHandlerMapping",
+                                                                                               RequestMappingHandlerMapping.class);
         Map<RequestMappingInfo, HandlerMethod> map = requestMappingHandlerMapping.getHandlerMethods();
         map.forEach((key, value) -> LOGGER.info("{} {}", key, value));
     }

@@ -25,11 +25,13 @@ import java.util.Random;
 import static javax.crypto.Cipher.ENCRYPT_MODE;
 
 public class Main {
+
     private static final Logger logger = LoggerFactory.getLogger(Main.class);
 
     private static final String CIPHER = "AES";
 
-    public static void main(String[] args) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, InvalidKeySpecException, IllegalBlockSizeException, BadPaddingException {
+    public static void main(String[] args) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, InvalidKeySpecException,
+                                           IllegalBlockSizeException, BadPaddingException {
         String plainText = "How you doing Mike?";
 
         encrypt(plainText, getRandomKey(CIPHER, 128));
@@ -61,7 +63,8 @@ public class Main {
         }
     }
 
-    private static void encrypt(String plainText, Key key) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
+    private static void encrypt(String plainText, Key key) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException,
+                                                           IllegalBlockSizeException, BadPaddingException {
         Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
         cipher.init(ENCRYPT_MODE, key);
         byte[] cipherTextBytes = cipher.doFinal(plainText.getBytes(StandardCharsets.UTF_8));

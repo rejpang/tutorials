@@ -15,9 +15,7 @@ public class LoanPayment implements Payment {
     }
 
     @Override
-    public List<Object> getPayments() {
-        return null;
-    }
+    public List<Object> getPayments() { return null; }
 
     @Override
     public void intiateLoanSettlement() {

@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.MINIMAL_CLASS, include = JsonTypeInfo.As.PROPERTY, property = "eventType")
 abstract public class Event {
+
     private final String id;
     private final Long timestamp;
 
@@ -15,11 +16,7 @@ abstract public class Event {
         this.timestamp = timestamp;
     }
 
-    public Long getTimestamp() {
-        return timestamp;
-    }
+    public Long getTimestamp() { return timestamp; }
 
-    public String getId() {
-        return id;
-    }
+    public String getId() { return id; }
 }

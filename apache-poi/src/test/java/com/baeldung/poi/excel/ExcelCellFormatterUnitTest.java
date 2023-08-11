@@ -14,6 +14,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class ExcelCellFormatterUnitTest {
+
     private static final String FILE_NAME = "ExcelCellFormatterTest.xlsx";
     private static final int STRING_CELL_INDEX = 0;
     private static final int BOOLEAN_CELL_INDEX = 1;
@@ -25,7 +26,7 @@ public class ExcelCellFormatterUnitTest {
 
     @Before
     public void setup() throws IOException, URISyntaxException {
-            fileLocation = Paths.get(ClassLoader.getSystemResource(FILE_NAME).toURI()).toString();
+        fileLocation = Paths.get(ClassLoader.getSystemResource(FILE_NAME).toURI()).toString();
     }
 
     @Test

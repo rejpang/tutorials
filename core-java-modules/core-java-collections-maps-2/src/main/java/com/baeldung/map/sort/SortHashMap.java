@@ -33,21 +33,18 @@ public class SortHashMap {
     }
 
     private static void sortGuava() {
-        final Ordering naturalOrdering =
-        Ordering.natural().onResultOf(Functions.forMap(map, null));
+        final Ordering naturalOrdering = Ordering.natural().onResultOf(Functions.forMap(map, null));
 
         System.out.println(ImmutableSortedMap.copyOf(map, naturalOrdering));
     }
 
     private static void sortStream() {
-        map.entrySet().stream()
-                .sorted(Map.Entry.<String, Employee>comparingByKey().reversed())
-                .forEach(System.out::println);
+        map.entrySet().stream().sorted(Map.Entry.<String, Employee> comparingByKey().reversed()).forEach(System.out::println);
 
-        Map<String, Employee> result = map.entrySet().stream()
-                .sorted(Map.Entry.comparingByValue())
-                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
-                (oldValue, newValue) -> oldValue, LinkedHashMap::new));
+        Map<String, Employee> result = map.entrySet().stream().sorted(Map.Entry.comparingByValue()).collect(Collectors.toMap(Map.Entry::getKey,
+                                                                                                                             Map.Entry::getValue,
+                                                                                                                             (oldValue, newValue) -> oldValue,
+                                                                                                                             LinkedHashMap::new));
 
         result.entrySet().forEach(System.out::println);
     }

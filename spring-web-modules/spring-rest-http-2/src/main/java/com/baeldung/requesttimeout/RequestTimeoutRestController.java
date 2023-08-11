@@ -32,6 +32,7 @@ public class RequestTimeoutRestController {
     }
 
     private final TimeLimiter ourTimeLimiter = TimeLimiter.of(TimeLimiterConfig.custom().timeoutDuration(Duration.ofMillis(500)).build());
+
     @GetMapping("/author/resilience4j")
     public Callable<String> getWithResilience4jTimeLimiter(@RequestParam String title) {
         return TimeLimiter.decorateFutureSupplier(ourTimeLimiter, () -> CompletableFuture.supplyAsync(() -> getAuthor(title)));
@@ -44,14 +45,8 @@ public class RequestTimeoutRestController {
 
     @GetMapping("/author/webclient")
     public String getWithWebClient(@RequestParam String title) {
-        return webClient.get()
-          .uri(uriBuilder -> uriBuilder
-            .path("/author/transactional")
-            .queryParam("title", title)
-            .build())
-          .retrieve()
-          .bodyToMono(String.class)
-          .block();
+        return webClient.get().uri(uriBuilder -> uriBuilder.path("/author/transactional").queryParam("title", title).build()).retrieve().bodyToMono(
+                                                                                                                                                    String.class).block();
     }
 
     private String getAuthor(String title) {

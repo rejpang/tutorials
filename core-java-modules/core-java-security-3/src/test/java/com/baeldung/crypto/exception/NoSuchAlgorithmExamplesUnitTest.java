@@ -12,23 +12,23 @@ public class NoSuchAlgorithmExamplesUnitTest {
 
     @Test
     public void whenInitingCipherWithUnknownAlgorithm_thenNoSuchAlgorithmExceptionIsThrown()
-            throws GeneralSecurityException {
+                                                                                             throws GeneralSecurityException {
         Assert.assertThrows(NoSuchAlgorithmException.class,
-                () -> NoSuchAlgorithmExamples.getCipherInstanceWithBadAlgorithm());
+                            () -> NoSuchAlgorithmExamples.getCipherInstanceWithBadAlgorithm());
     }
 
     @Test
     public void whenInitingCipherWithUnknownAlgorithmMode_thenNoSuchAlgorithmExceptionIsThrown()
-            throws GeneralSecurityException {
+                                                                                                 throws GeneralSecurityException {
         Assert.assertThrows(NoSuchAlgorithmException.class,
-                () -> NoSuchAlgorithmExamples.getCipherInstanceWithBadAlgorithmMode());
+                            () -> NoSuchAlgorithmExamples.getCipherInstanceWithBadAlgorithmMode());
     }
 
     @Test
     public void whenInitingCipherWithUnknownPadding_thenNoSuchAlgorithmExceptionIsThrown()
-            throws GeneralSecurityException {
+                                                                                           throws GeneralSecurityException {
         Assert.assertThrows(NoSuchAlgorithmException.class,
-                () -> NoSuchAlgorithmExamples.getCipherInstanceWithBadPadding());
+                            () -> NoSuchAlgorithmExamples.getCipherInstanceWithBadPadding());
     }
 
     @Test

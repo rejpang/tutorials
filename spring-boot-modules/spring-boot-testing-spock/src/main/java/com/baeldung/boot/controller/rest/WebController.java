@@ -24,9 +24,7 @@ public class WebController {
 
     @PutMapping
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void setName(@RequestBody final String name) {
-        this.name = name;
-    }
+    public void setName(@RequestBody final String name) { this.name = name; }
 
     @DeleteMapping
     @ResponseStatus(HttpStatus.NO_CONTENT)

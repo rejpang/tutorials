@@ -3,6 +3,7 @@ package com.baeldung.algorithms.largestpowerof2;
 import org.nd4j.linalg.io.Assert;
 
 public class LargestPowerOf2 {
+
     public long findLargestPowerOf2LessThanTheGivenNumber(long input) {
         Assert.isTrue(input > 1, "Invalid input");
 

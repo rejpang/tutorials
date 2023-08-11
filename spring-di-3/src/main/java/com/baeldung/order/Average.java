@@ -9,7 +9,5 @@ import org.springframework.stereotype.Component;
 public class Average implements Rating {
 
     @Override
-    public int getRating() {
-        return 3;
-    }
+    public int getRating() { return 3; }
 }

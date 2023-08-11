@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class BooleanToStringUnitTest {
+
     String optionToString(String optionName, boolean optionValue) {
         return String.format("The option '%s' is %s.", optionName, optionValue ? "Enabled" : "Disabled");
     }
@@ -20,7 +21,6 @@ public class BooleanToStringUnitTest {
 
         assertEquals("The option 'IgnoreWarnings' is Enabled.", optionToString("IgnoreWarnings", true));
     }
-
 
     @Test
     void givenBooleanObject_whenConvertingUsingBooleanToString_thenSuccess() {

@@ -27,46 +27,25 @@ public class BakeryControllerIntegrationTest {
 
     @Test
     public void givenDeferredResultTimesOut_ThenErrorResponseIsRecieved() throws Exception {
-        MvcResult asyncListener = mockMvc
-          .perform(MockMvcRequestBuilders.get("/api/bake/cookie?bakeTime=6000"))
-          .andExpect(request().asyncStarted())
-          .andReturn();
+        MvcResult asyncListener = mockMvc.perform(MockMvcRequestBuilders.get("/api/bake/cookie?bakeTime=6000")).andExpect(request().asyncStarted()).andReturn();
 
         enableTimeout(asyncListener);
 
-        String response = mockMvc
-          .perform(asyncDispatch(asyncListener))
-          .andReturn()
-          .getResponse()
-          .getContentAsString();
+        String response = mockMvc.perform(asyncDispatch(asyncListener)).andReturn().getResponse().getContentAsString();
 
-        assertThat(response)
-          .isEqualTo("the bakery is not responding in allowed time");
+        assertThat(response).isEqualTo("the bakery is not responding in allowed time");
     }
 
     @Test
     public void givenDeferredResultSuccessful_ThenSuccessResponseIsRecieved() throws Exception {
-        MvcResult asyncListener = mockMvc
-          .perform(MockMvcRequestBuilders.get("/api/bake/cookie?bakeTime=1000"))
-          .andExpect(request().asyncStarted())
-          .andReturn();
+        MvcResult asyncListener = mockMvc.perform(MockMvcRequestBuilders.get("/api/bake/cookie?bakeTime=1000")).andExpect(request().asyncStarted()).andReturn();
 
-        String response = mockMvc
-          .perform(asyncDispatch(asyncListener))
-          .andReturn()
-          .getResponse()
-          .getContentAsString();
+        String response = mockMvc.perform(asyncDispatch(asyncListener)).andReturn().getResponse().getContentAsString();
 
-        assertThat(response)
-          .isEqualTo("Bake for cookie complete and order dispatched. Enjoy!");
+        assertThat(response).isEqualTo("Bake for cookie complete and order dispatched. Enjoy!");
     }
 
     private static void enableTimeout(MvcResult asyncListener) throws IOException {
-        ((MockAsyncContext) asyncListener
-          .getRequest()
-          .getAsyncContext())
-          .getListeners()
-          .get(0)
-          .onTimeout(null);
+        ((MockAsyncContext) asyncListener.getRequest().getAsyncContext()).getListeners().get(0).onTimeout(null);
     }
 }

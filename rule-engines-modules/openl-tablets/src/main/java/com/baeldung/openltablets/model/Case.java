@@ -5,19 +5,11 @@ public class Case {
     private User user;
     private int hourOfDay;
 
-    public User getUser() {
-        return user;
-    }
+    public User getUser() { return user; }
 
-    public void setUser(final User user) {
-        this.user = user;
-    }
+    public void setUser(final User user) { this.user = user; }
 
-    public int getHourOfDay() {
-        return hourOfDay;
-    }
+    public int getHourOfDay() { return hourOfDay; }
 
-    public void setHourOfDay(final int hourOfDay) {
-        this.hourOfDay = hourOfDay;
-    }
+    public void setHourOfDay(final int hourOfDay) { this.hourOfDay = hourOfDay; }
 }

@@ -9,8 +9,9 @@ import jakarta.validation.constraints.Size;
 import org.hibernate.validator.constraints.Length;
 
 @Entity
-@Table(name="users2")
+@Table(name = "users2")
 public class User {
+
     @Id
     @Column(length = 3)
     private String firstName;
@@ -33,35 +34,19 @@ public class User {
         this.city = city;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
+    public String getFirstName() { return firstName; }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+    public void setFirstName(String firstName) { this.firstName = firstName; }
 
-    public String getMiddleName() {
-        return middleName;
-    }
+    public String getMiddleName() { return middleName; }
 
-    public void setMiddleName(String middletName) {
-        this.middleName = middletName;
-    }
+    public void setMiddleName(String middletName) { this.middleName = middletName; }
 
-    public String getLastName() {
-        return lastName;
-    }
+    public String getLastName() { return lastName; }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+    public void setLastName(String lastName) { this.lastName = lastName; }
 
-    public String getCity() {
-        return city;
-    }
+    public String getCity() { return city; }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
+    public void setCity(String city) { this.city = city; }
 }

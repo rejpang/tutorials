@@ -20,29 +20,17 @@ public class MyDto {
 
     // API
 
-    public String getStringValue() {
-        return stringValue;
-    }
+    public String getStringValue() { return stringValue; }
 
-    public void setStringValue(final String stringValue) {
-        this.stringValue = stringValue;
-    }
+    public void setStringValue(final String stringValue) { this.stringValue = stringValue; }
 
-    public int getIntValue() {
-        return intValue;
-    }
+    public int getIntValue() { return intValue; }
 
-    public void setIntValue(final int intValue) {
-        this.intValue = intValue;
-    }
+    public void setIntValue(final int intValue) { this.intValue = intValue; }
 
-    public boolean isBooleanValue() {
-        return booleanValue;
-    }
+    public boolean isBooleanValue() { return booleanValue; }
 
-    public void setBooleanValue(final boolean booleanValue) {
-        this.booleanValue = booleanValue;
-    }
+    public void setBooleanValue(final boolean booleanValue) { this.booleanValue = booleanValue; }
 
     //
 

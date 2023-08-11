@@ -21,9 +21,7 @@ public class RequestTimeoutIntegrationTest {
 
     @Before
     public void setUp() {
-        webClient = WebClient.builder()
-          .baseUrl("http://localhost:" + port)
-          .build();
+        webClient = WebClient.builder().baseUrl("http://localhost:" + port).build();
     }
 
     @Test(expected = WebClientResponseException.InternalServerError.class)
@@ -47,14 +45,8 @@ public class RequestTimeoutIntegrationTest {
     }
 
     private void getAuthor(String authorPath) {
-        webClient.get()
-          .uri(uriBuilder -> uriBuilder
-            .path("/author/" + authorPath)
-            .queryParam("title", "title")
-            .build())
-          .retrieve()
-          .bodyToMono(String.class)
-          .block();
+        webClient.get().uri(uriBuilder -> uriBuilder.path("/author/" + authorPath).queryParam("title", "title").build()).retrieve().bodyToMono(
+                                                                                                                                               String.class).block();
     }
 
 }

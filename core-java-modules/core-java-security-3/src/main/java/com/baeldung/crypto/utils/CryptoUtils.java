@@ -50,7 +50,7 @@ public class CryptoUtils {
     }
 
     public static IvParameterSpec getIVSecureRandom(String algorithm)
-            throws NoSuchAlgorithmException, NoSuchPaddingException {
+                                                                      throws NoSuchAlgorithmException, NoSuchPaddingException {
         SecureRandom random = SecureRandom.getInstanceStrong();
         byte[] iv = new byte[Cipher.getInstance(algorithm).getBlockSize()];
         random.nextBytes(iv);
@@ -70,7 +70,8 @@ public class CryptoUtils {
     }
 
     public static byte[] encryptWithPadding(SecretKey key, byte[] bytes) throws NoSuchAlgorithmException,
-            NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
+                                                                         NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException,
+                                                                         BadPaddingException {
         Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
         cipher.init(Cipher.ENCRYPT_MODE, key);
 
@@ -79,7 +80,8 @@ public class CryptoUtils {
     }
 
     public static byte[] decryptWithPadding(SecretKey key, byte[] cipherTextBytes) throws NoSuchAlgorithmException,
-            NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
+                                                                                   NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException,
+                                                                                   BadPaddingException {
         Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
         cipher.init(Cipher.DECRYPT_MODE, key);
 

@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 
 public class RestLoaderRequestDeserializer extends StdDeserializer<RestLoaderRequest<IEntity>> {
+
     private static final long serialVersionUID = -4245207329377196889L;
 
     public RestLoaderRequestDeserializer() {
@@ -25,10 +26,8 @@ public class RestLoaderRequestDeserializer extends StdDeserializer<RestLoaderReq
         try {
             final ObjectCodec objectCodec = jp.getCodec();
             final JsonNode node = objectCodec.readTree(jp);
-            final String className = node.get("className")
-                .textValue();
-            final String fieldName = node.get("fieldName")
-                .textValue();
+            final String className = node.get("className").textValue();
+            final String fieldName = node.get("fieldName").textValue();
 
             final Class<?> clazz = Class.forName(className);
 

@@ -10,6 +10,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class ItemIdRemovedFromUserUnitTest {
+
     @Test
     public void givenRemoveItemJson_whenDeserialize_shouldHaveProperClassType() throws IOException {
         // given

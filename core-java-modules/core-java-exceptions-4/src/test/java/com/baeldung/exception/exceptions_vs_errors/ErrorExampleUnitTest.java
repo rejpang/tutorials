@@ -8,6 +8,6 @@ public class ErrorExampleUnitTest {
     @Test
     public void whenMainMethodIsRun_thenStackOverflowError() {
         Assertions.assertThrows(AssertionError.class,
-          () -> ErrorExample.main(null));
+                                () -> ErrorExample.main(null));
     }
 }

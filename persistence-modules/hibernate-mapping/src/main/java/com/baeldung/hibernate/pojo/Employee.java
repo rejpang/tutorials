@@ -24,9 +24,7 @@ public class Employee implements Serializable {
 
     private boolean deleted;
 
-    public long getTaxJavaWay() {
-        return grossIncome * taxInPercents / 100;
-    }
+    public long getTaxJavaWay() { return grossIncome * taxInPercents / 100; }
 
     @Formula("grossIncome * taxInPercents / 100")
     private long tax;
@@ -44,44 +42,24 @@ public class Employee implements Serializable {
         this.taxInPercents = taxInPercents;
     }
 
-    public Integer getId() {
-        return id;
-    }
+    public Integer getId() { return id; }
 
-    public long getGrossIncome() {
-        return grossIncome;
-    }
+    public long getGrossIncome() { return grossIncome; }
 
-    public int getTaxInPercents() {
-        return taxInPercents;
-    }
+    public int getTaxInPercents() { return taxInPercents; }
 
-    public long getTax() {
-        return tax;
-    }
+    public long getTax() { return tax; }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    public void setId(Integer id) { this.id = id; }
 
-    public void setGrossIncome(long grossIncome) {
-        this.grossIncome = grossIncome;
-    }
+    public void setGrossIncome(long grossIncome) { this.grossIncome = grossIncome; }
 
-    public void setTaxInPercents(int taxInPercents) {
-        this.taxInPercents = taxInPercents;
-    }
+    public void setTaxInPercents(int taxInPercents) { this.taxInPercents = taxInPercents; }
 
-    public boolean getDeleted() {
-        return deleted;
-    }
+    public boolean getDeleted() { return deleted; }
 
-    public void setDeleted(boolean deleted) {
-        this.deleted = deleted;
-    }
+    public void setDeleted(boolean deleted) { this.deleted = deleted; }
 
-    public Set<Phone> getPhones() {
-        return phones;
-    }
+    public Set<Phone> getPhones() { return phones; }
 
 }

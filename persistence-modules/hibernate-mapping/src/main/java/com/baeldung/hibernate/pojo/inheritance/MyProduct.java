@@ -12,6 +12,7 @@ import jakarta.persistence.InheritanceType;
 @DiscriminatorColumn(name = "product_type", discriminatorType = DiscriminatorType.INTEGER)
 // @DiscriminatorFormula("case when author is not null then 1 else 2 end")
 public class MyProduct {
+
     @Id
     private long productId;
 
@@ -26,20 +27,12 @@ public class MyProduct {
         this.name = name;
     }
 
-    public long getProductId() {
-        return productId;
-    }
+    public long getProductId() { return productId; }
 
-    public void setProductId(long productId) {
-        this.productId = productId;
-    }
+    public void setProductId(long productId) { this.productId = productId; }
 
-    public String getName() {
-        return name;
-    }
+    public String getName() { return name; }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public void setName(String name) { this.name = name; }
 
 }

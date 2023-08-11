@@ -1,6 +1,7 @@
 package com.baeldung.algorithms.boruvka;
 
 public class UnionFind {
+
     private int[] parents;
     private int[] ranks;
 

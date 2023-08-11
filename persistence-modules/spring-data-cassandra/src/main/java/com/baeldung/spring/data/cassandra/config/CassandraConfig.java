@@ -17,15 +17,14 @@ import org.springframework.data.cassandra.repository.config.EnableCassandraRepos
 @PropertySource(value = { "classpath:cassandra.properties" })
 @EnableCassandraRepositories(basePackages = "com.baeldung.spring.data.cassandra.repository")
 public class CassandraConfig extends AbstractCassandraConfiguration {
+
     private static final Log LOGGER = LogFactory.getLog(CassandraConfig.class);
 
     @Autowired
     private Environment environment;
 
     @Override
-    protected String getKeyspaceName() {
-        return environment.getProperty("cassandra.keyspace");
-    }
+    protected String getKeyspaceName() { return environment.getProperty("cassandra.keyspace"); }
 
     @Override
     @Bean
@@ -33,7 +32,9 @@ public class CassandraConfig extends AbstractCassandraConfiguration {
         final CassandraClusterFactoryBean cluster = new CassandraClusterFactoryBean();
         cluster.setContactPoints(environment.getProperty("cassandra.contactpoints"));
         cluster.setPort(Integer.parseInt(environment.getProperty("cassandra.port")));
-        LOGGER.info("Cluster created with contact points [" + environment.getProperty("cassandra.contactpoints") + "] " + "& port [" + Integer.parseInt(environment.getProperty("cassandra.port")) + "].");
+        LOGGER.info("Cluster created with contact points [" + environment.getProperty("cassandra.contactpoints") + "] " + "& port [" + Integer.parseInt(
+                                                                                                                                                        environment.getProperty("cassandra.port")) +
+            "].");
         return cluster;
     }
 

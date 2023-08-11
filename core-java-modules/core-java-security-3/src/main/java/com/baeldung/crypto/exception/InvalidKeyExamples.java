@@ -12,7 +12,7 @@ import com.baeldung.crypto.utils.CryptoUtils;
 public class InvalidKeyExamples {
 
     public static byte[] decryptUsingCBCWithNoIV(SecretKey key, byte[] cipherTextBytes)
-            throws InvalidKeyException, GeneralSecurityException {
+                                                                                        throws InvalidKeyException, GeneralSecurityException {
         Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
         cipher.init(Cipher.DECRYPT_MODE, key);
 
@@ -20,7 +20,7 @@ public class InvalidKeyExamples {
     }
 
     public static byte[] decryptUsingCBCWithIV(SecretKey key, byte[] cipherTextBytes)
-            throws InvalidKeyException, GeneralSecurityException {
+                                                                                      throws InvalidKeyException, GeneralSecurityException {
         byte[] ivBytes = new byte[] { 'B', 'a', 'e', 'l', 'd', 'u', 'n', 'g', 'I', 's', 'G', 'r', 'e', 'a', 't', '!' };
         IvParameterSpec ivParameterSpec = new IvParameterSpec(ivBytes);
 

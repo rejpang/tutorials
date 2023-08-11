@@ -112,8 +112,7 @@ public class DynamicMappingIntegrationTest {
         session.flush();
         session.clear();
 
-        session.enableFilter("incomeLevelFilter")
-                .setParameter("incomeLimit", 11_000);
+        session.enableFilter("incomeLevelFilter").setParameter("incomeLimit", 11_000);
 
         List<Employee> employees = session.createQuery("from Employee").getResultList();
 

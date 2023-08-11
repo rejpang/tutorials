@@ -22,6 +22,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 public class MapKeyIntegrationTest {
+
     private static SessionFactory sessionFactory;
 
     private Session session;
@@ -45,7 +46,6 @@ public class MapKeyIntegrationTest {
         item1.setItemType(ItemType.JEANS);
         item1.setCreatedOn(Date.from(Instant.ofEpochSecond(1554926573)));
 
-
         Item item2 = new Item();
         item2.setItemName("Armani Tshirts");
         item2.setItemPrice(180.0);
@@ -66,8 +66,7 @@ public class MapKeyIntegrationTest {
     }
 
     private void assertInsertedData(Item expectedItem1, Item expectedItem2) {
-        @SuppressWarnings("unchecked")
-        List<Order> orderList = session.createQuery("FROM Order").list();
+        @SuppressWarnings("unchecked") List<Order> orderList = session.createQuery("FROM Order").list();
 
         assertNotNull(orderList);
         assertEquals(1, orderList.size());
@@ -92,4 +91,3 @@ public class MapKeyIntegrationTest {
         sessionFactory.close();
     }
 }
-

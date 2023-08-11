@@ -38,12 +38,12 @@ public class InvalidKeyExamplesUnitTest {
     @Test
     public void givenTextEncryptedWithCBC_whenDecryptingWithNoIv_thenInvalidKeyExceptionIsThrown() {
         Assert.assertThrows(InvalidKeyException.class,
-                () -> InvalidKeyExamples.decryptUsingCBCWithNoIV(key, cipherTextBytes));
+                            () -> InvalidKeyExamples.decryptUsingCBCWithNoIV(key, cipherTextBytes));
     }
 
     @Test
     public void givenTextEncryptedWithCBC_whenDecryptingWithIv_thenTextIsDecrypted()
-            throws InvalidKeyException, GeneralSecurityException {
+                                                                                     throws InvalidKeyException, GeneralSecurityException {
         byte[] decryptedBytes = InvalidKeyExamples.decryptUsingCBCWithIV(key, cipherTextBytes);
 
         Assert.assertEquals(plainText, new String(decryptedBytes));

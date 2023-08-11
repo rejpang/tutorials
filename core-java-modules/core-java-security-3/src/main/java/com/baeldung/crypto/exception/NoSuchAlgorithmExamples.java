@@ -8,22 +8,18 @@ import javax.crypto.NoSuchPaddingException;
 public class NoSuchAlgorithmExamples {
 
     public static Cipher getCipherInstanceWithBadAlgorithm()
-            throws NoSuchAlgorithmException, NoSuchPaddingException {
-        return Cipher.getInstance("ABC");
-    }
+                                                             throws NoSuchAlgorithmException, NoSuchPaddingException { return Cipher.getInstance("ABC"); }
 
     public static Cipher getCipherInstanceWithBadAlgorithmMode()
-            throws NoSuchAlgorithmException, NoSuchPaddingException {
+                                                                 throws NoSuchAlgorithmException, NoSuchPaddingException {
         return Cipher.getInstance("AES/ABC");
     }
 
     public static Cipher getCipherInstanceWithBadPadding()
-            throws NoSuchAlgorithmException, NoSuchPaddingException {
-        return Cipher.getInstance("AES/CBC/ABC");
-    }
+                                                           throws NoSuchAlgorithmException, NoSuchPaddingException { return Cipher.getInstance("AES/CBC/ABC"); }
 
     public static Cipher getCipherInstanceWithValidAlgorithm()
-            throws NoSuchAlgorithmException, NoSuchPaddingException {
+                                                               throws NoSuchAlgorithmException, NoSuchPaddingException {
         return Cipher.getInstance("AES/CBC/PKCS5Padding");
     }
 }

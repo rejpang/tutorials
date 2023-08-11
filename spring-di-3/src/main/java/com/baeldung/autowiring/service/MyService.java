@@ -7,10 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
  * Alternatively, you could choose to decorate this class with @Component or @Service
  */
 public class MyService {
-    
+
     @Autowired
     MyComponent myComponent;
-    
+
     public String serve() {
         myComponent.doWork();
         return "success";

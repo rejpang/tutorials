@@ -9,8 +9,7 @@ public class Grader {
 
     public String grade(Collection<Integer> marks) {
 
-        boolean result = marks.stream()
-            .anyMatch(mark -> mark < 45);
+        boolean result = marks.stream().anyMatch(mark -> mark < 45);
         if (result) {
             return "FAIL";
         }

@@ -1,6 +1,5 @@
 package com.baeldung.openltablets.rules;
 
-
 import java.time.LocalDateTime;
 
 import org.openl.rules.runtime.RulesEngineFactory;
@@ -10,6 +9,7 @@ import com.baeldung.openltablets.model.Case;
 import com.baeldung.openltablets.model.User;
 
 public class Main {
+
     private IRule instance;
 
     public static void main(String[] args) {
@@ -23,8 +23,8 @@ public class Main {
     }
 
     public void process(Case aCase) {
-        final EngineFactory<IRule> engineFactory = new RulesEngineFactory<IRule>(getClass().getClassLoader()
-            .getResource("openltablets/HelloUser.xls"), IRule.class);
+        final EngineFactory<IRule> engineFactory = new RulesEngineFactory<IRule>(getClass().getClassLoader().getResource("openltablets/HelloUser.xls"),
+                                                                                 IRule.class);
         instance = engineFactory.newEngineInstance();
         instance.helloUser(aCase, new Response());
     }

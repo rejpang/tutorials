@@ -16,12 +16,10 @@ import com.baeldung.hibernate.lob.model.User;
 
 public class HibernateSessionUtil {
 
-	private static SessionFactory sessionFactory;
+    private static SessionFactory sessionFactory;
     private static String PROPERTY_FILE_NAME;
 
-    public static SessionFactory getSessionFactory() throws IOException {
-        return getSessionFactory(null);
-    }
+    public static SessionFactory getSessionFactory() throws IOException { return getSessionFactory(null); }
 
     public static SessionFactory getSessionFactory(String propertyFileName) throws IOException {
         PROPERTY_FILE_NAME = propertyFileName;
@@ -37,22 +35,18 @@ public class HibernateSessionUtil {
         metadataSources.addAnnotatedClass(User.class);
 
         Metadata metadata = metadataSources.buildMetadata();
-        return metadata.getSessionFactoryBuilder()
-                .build();
+        return metadata.getSessionFactoryBuilder().build();
 
     }
 
     private static ServiceRegistry configureServiceRegistry() throws IOException {
         Properties properties = getProperties();
-        return new StandardServiceRegistryBuilder().applySettings(properties)
-                .build();
+        return new StandardServiceRegistryBuilder().applySettings(properties).build();
     }
 
     private static Properties getProperties() throws IOException {
         Properties properties = new Properties();
-        URL propertiesURL = Thread.currentThread()
-          .getContextClassLoader()
-          .getResource(StringUtils.defaultString(PROPERTY_FILE_NAME, "hibernate.properties"));
+        URL propertiesURL = Thread.currentThread().getContextClassLoader().getResource(StringUtils.defaultString(PROPERTY_FILE_NAME, "hibernate.properties"));
         try (FileInputStream inputStream = new FileInputStream(propertiesURL.getFile())) {
             properties.load(inputStream);
         }

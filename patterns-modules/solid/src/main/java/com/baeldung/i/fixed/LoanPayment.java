@@ -20,7 +20,5 @@ public class LoanPayment implements Loan {
     }
 
     @Override
-    public List<Object> getPayments() {
-        return null;
-    }
+    public List<Object> getPayments() { return null; }
 }

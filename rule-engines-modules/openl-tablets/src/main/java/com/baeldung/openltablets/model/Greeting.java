@@ -13,8 +13,6 @@ public enum Greeting {
         this.literal = literal;
     }
 
-    public String getLiteral() {
-        return literal;
-    }
+    public String getLiteral() { return literal; }
 
 }

@@ -7,6 +7,7 @@ import java.security.NoSuchAlgorithmException;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CryptographyStrengthUnitTest {
+
     private static final int UNLIMITED_KEY_SIZE = 2147483647;
 
     @Test

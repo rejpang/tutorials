@@ -3,7 +3,9 @@ package com.baeldung.jackson.inheritance;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class SubTypeConversionStructure {
+
     public static abstract class Vehicle {
+
         private String make;
         private String model;
 
@@ -15,24 +17,17 @@ public class SubTypeConversionStructure {
             this.model = model;
         }
 
-        public String getMake() {
-            return make;
-        }
+        public String getMake() { return make; }
 
-        public void setMake(String make) {
-            this.make = make;
-        }
+        public void setMake(String make) { this.make = make; }
 
-        public String getModel() {
-            return model;
-        }
+        public String getModel() { return model; }
 
-        public void setModel(String model) {
-            this.model = model;
-        }
+        public void setModel(String model) { this.model = model; }
     }
 
     public static class Car extends Vehicle {
+
         @JsonIgnore
         private int seatingCapacity;
         @JsonIgnore
@@ -47,24 +42,17 @@ public class SubTypeConversionStructure {
             this.topSpeed = topSpeed;
         }
 
-        public int getSeatingCapacity() {
-            return seatingCapacity;
-        }
+        public int getSeatingCapacity() { return seatingCapacity; }
 
-        public void setSeatingCapacity(int seatingCapacity) {
-            this.seatingCapacity = seatingCapacity;
-        }
+        public void setSeatingCapacity(int seatingCapacity) { this.seatingCapacity = seatingCapacity; }
 
-        public double getTopSpeed() {
-            return topSpeed;
-        }
+        public double getTopSpeed() { return topSpeed; }
 
-        public void setTopSpeed(double topSpeed) {
-            this.topSpeed = topSpeed;
-        }
+        public void setTopSpeed(double topSpeed) { this.topSpeed = topSpeed; }
     }
 
     public static class Truck extends Vehicle {
+
         @JsonIgnore
         private double payloadCapacity;
 
@@ -76,12 +64,8 @@ public class SubTypeConversionStructure {
             this.payloadCapacity = payloadCapacity;
         }
 
-        public double getPayloadCapacity() {
-            return payloadCapacity;
-        }
+        public double getPayloadCapacity() { return payloadCapacity; }
 
-        public void setPayloadCapacity(double payloadCapacity) {
-            this.payloadCapacity = payloadCapacity;
-        }
+        public void setPayloadCapacity(double payloadCapacity) { this.payloadCapacity = payloadCapacity; }
     }
 }

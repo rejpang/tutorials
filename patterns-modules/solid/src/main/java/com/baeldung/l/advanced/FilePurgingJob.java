@@ -3,6 +3,7 @@ package com.baeldung.l.advanced;
 import java.io.IOException;
 
 public class FilePurgingJob {
+
     private FileSystem fileSystem;
 
     public FilePurgingJob(FileSystem fileSystem) {

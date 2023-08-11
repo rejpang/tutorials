@@ -21,33 +21,19 @@ public class Address {
         this.postalCode = postalCode;
     }
 
-    public Long getId() {
-        return id;
-    }
+    public Long getId() { return id; }
 
-    public String getName() {
-        return name;
-    }
+    public String getName() { return name; }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public void setName(String name) { this.name = name; }
 
-    public String getCity() {
-        return city;
-    }
+    public String getCity() { return city; }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
+    public void setCity(String city) { this.city = city; }
 
-    public String getPostalCode() {
-        return postalCode;
-    }
+    public String getPostalCode() { return postalCode; }
 
-    public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
-    }
+    public void setPostalCode(String postalCode) { this.postalCode = postalCode; }
 
     @Override
     public String toString() {

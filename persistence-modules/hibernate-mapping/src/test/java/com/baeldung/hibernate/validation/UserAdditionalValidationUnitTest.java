@@ -41,7 +41,7 @@ public class UserAdditionalValidationUnitTest {
 
     @Test
     public void whenValidationWithCCNAndNullCCN_thenNoConstraintViolation() {
-    	AdditionalValidations validations = new AdditionalValidations();
+        AdditionalValidations validations = new AdditionalValidations();
         constraintViolations = validator.validateProperty(validations, "creditCardNumber");
         assertTrue(constraintViolations.isEmpty());
     }
@@ -56,15 +56,15 @@ public class UserAdditionalValidationUnitTest {
 
     @Test
     public void whenValidationWithCCNAndInvalidCCN_thenConstraintViolation() {
-    	AdditionalValidations validations = new AdditionalValidations();
+        AdditionalValidations validations = new AdditionalValidations();
         validations.setCreditCardNumber("79927398714");
         constraintViolations = validator.validateProperty(validations, "creditCardNumber");
         assertEquals(constraintViolations.size(), 2);
     }
-    
+
     @Test
     public void whenValidationWithCCNAndValidCCNWithDashes_thenConstraintViolation() {
-    	AdditionalValidations validations = new AdditionalValidations();
+        AdditionalValidations validations = new AdditionalValidations();
         validations.setCreditCardNumber("7992-7398-713");
         constraintViolations = validator.validateProperty(validations, "creditCardNumber");
         assertEquals(1, constraintViolations.size());
@@ -72,129 +72,130 @@ public class UserAdditionalValidationUnitTest {
 
     @Test
     public void whenValidationWithLenientCCNAndValidCCNWithDashes_thenNoConstraintViolation() {
-    	AdditionalValidations validations = new AdditionalValidations();
+        AdditionalValidations validations = new AdditionalValidations();
         validations.setLenientCreditCardNumber("7992-7398-713");
         constraintViolations = validator.validateProperty(validations, "lenientCreditCardNumber");
         assertTrue(constraintViolations.isEmpty());
     }
- 
+
     @Test
     public void whenMonetaryAmountWithRightCurrency_thenNoConstraintViolation() {
-    	AdditionalValidations bean = new AdditionalValidations();
+        AdditionalValidations bean = new AdditionalValidations();
         bean.setBalance(Money.of(new BigDecimal(100.0), Monetary.getCurrency("EUR")));
         constraintViolations = validator.validateProperty(bean, "balance");
         assertEquals(0, constraintViolations.size());
     }
-    
+
     @Test
     public void whenMonetaryAmountWithWrongCurrency_thenConstraintViolation() {
-    	AdditionalValidations validations = new AdditionalValidations();
+        AdditionalValidations validations = new AdditionalValidations();
         validations.setBalance(Money.of(new BigDecimal(100.0), Monetary.getCurrency("USD")));
         constraintViolations = validator.validateProperty(validations, "balance");
         assertEquals(1, constraintViolations.size());
     }
-    
+
     @Test
     public void whenDurationShorterThanMin_thenConstraintViolation() {
-    	AdditionalValidations bean = new AdditionalValidations();
-    	bean.setDuration(Duration.ofDays(1).plusHours(1));
+        AdditionalValidations bean = new AdditionalValidations();
+        bean.setDuration(Duration.ofDays(1).plusHours(1));
         constraintViolations = validator.validateProperty(bean, "duration");
         assertEquals(1, constraintViolations.size());
     }
-    
+
     @Test
     public void whenDurationLongerThanMax_thenConstraintViolation() {
-    	AdditionalValidations bean = new AdditionalValidations();
-    	bean.setDuration(Duration.ofDays(2).plusHours(3));
+        AdditionalValidations bean = new AdditionalValidations();
+        bean.setDuration(Duration.ofDays(2).plusHours(3));
         constraintViolations = validator.validateProperty(bean, "duration");
         assertEquals(1, constraintViolations.size());
     }
-    
+
     @Test
     public void whenDurationBetweenMinAndMax_thenNoConstraintViolation() {
-    	AdditionalValidations bean = new AdditionalValidations();
-    	bean.setDuration(Duration.ofDays(2));
+        AdditionalValidations bean = new AdditionalValidations();
+        bean.setDuration(Duration.ofDays(2));
         constraintViolations = validator.validateProperty(bean, "duration");
         assertEquals(0, constraintViolations.size());
     }
-    
+
     @Test
     public void whenValueBelowRangeMin_thenConstraintViolation() {
-    	AdditionalValidations bean = new AdditionalValidations();
-    	bean.setPercent(new BigDecimal("-1.4"));
+        AdditionalValidations bean = new AdditionalValidations();
+        bean.setPercent(new BigDecimal("-1.4"));
         constraintViolations = validator.validateProperty(bean, "percent");
         assertEquals(1, constraintViolations.size());
     }
-    
+
     @Test
     public void whenValueAboveRangeMax_thenConstraintViolation() {
-    	AdditionalValidations bean = new AdditionalValidations();
-    	bean.setPercent(new BigDecimal("100.03"));
+        AdditionalValidations bean = new AdditionalValidations();
+        bean.setPercent(new BigDecimal("100.03"));
         constraintViolations = validator.validateProperty(bean, "percent");
         assertEquals(1, constraintViolations.size());
     }
-    
+
     @Test
     public void whenValueInRange_thenNoConstraintViolation() {
-    	AdditionalValidations bean = new AdditionalValidations();
-    	bean.setPercent(new BigDecimal("53.23"));
+        AdditionalValidations bean = new AdditionalValidations();
+        bean.setPercent(new BigDecimal("53.23"));
         constraintViolations = validator.validateProperty(bean, "percent");
         assertEquals(0, constraintViolations.size());
     }
 
     @Test
     public void whenLengthInRange_thenNoConstraintViolation() {
-    	AdditionalValidations bean = new AdditionalValidations();
-    	bean.setSomeString("aaa");
+        AdditionalValidations bean = new AdditionalValidations();
+        bean.setSomeString("aaa");
         constraintViolations = validator.validateProperty(bean, "someString");
         assertEquals(0, constraintViolations.size());
     }
-    
+
     @Test
     public void whenCodePointLengthNotInRange_thenConstraintViolation() {
-    	AdditionalValidations bean = new AdditionalValidations();
-    	bean.setSomeString("aa\uD835\uDD0A");
+        AdditionalValidations bean = new AdditionalValidations();
+        bean.setSomeString("aa\uD835\uDD0A");
         constraintViolations = validator.validateProperty(bean, "someString");
         assertEquals(1, constraintViolations.size());
     }
-    
+
     @Test
     public void whenValidUrlWithWrongProtocol_thenConstraintViolation() {
-    	AdditionalValidations bean = new AdditionalValidations();
-    	
-    	bean.setUrl("https://www.google.com/");
+        AdditionalValidations bean = new AdditionalValidations();
+
+        bean.setUrl("https://www.google.com/");
         constraintViolations = validator.validateProperty(bean, "url");
         assertEquals(0, constraintViolations.size());
-    	
-    	bean.setUrl("http://www.google.com/");
+
+        bean.setUrl("http://www.google.com/");
         constraintViolations = validator.validateProperty(bean, "url");
         assertEquals(1, constraintViolations.size());
-        
-    	bean.setUrl("https://foo:bar");
+
+        bean.setUrl("https://foo:bar");
         constraintViolations = validator.validateProperty(bean, "url");
         assertEquals(1, constraintViolations.size());
     }
-    
+
     @Test
     public void whenScriptAssertFails_thenConstraintViolation() {
-    	AdditionalValidations bean = new AdditionalValidations();
-    	
-    	constraintViolations = validator.validate(bean);
-    	assertEquals(0, constraintViolations.size());
-        
-        bean.setValid(false);
-    	
+        AdditionalValidations bean = new AdditionalValidations();
+
         constraintViolations = validator.validate(bean);
-    	assertEquals(1, constraintViolations.size());
-    	
-    	constraintViolations = validator.validateProperty(bean, "valid");
-    	assertEquals(0, constraintViolations.size());
+        assertEquals(0, constraintViolations.size());
+
+        bean.setValid(false);
+
+        constraintViolations = validator.validate(bean);
+        assertEquals(1, constraintViolations.size());
+
+        constraintViolations = validator.validateProperty(bean, "valid");
+        assertEquals(0, constraintViolations.size());
     }
 
     @ScriptAssert(lang = "nashorn", script = "_this.valid")
     public class AdditionalValidations {
-    	private boolean valid = true;
-    	
+
+        private boolean valid = true;
+
         @CreditCardNumber
         @LuhnCheck(startIndex = 0, endIndex = Integer.MAX_VALUE, checkDigitIndex = -1)
         private String creditCardNumber;
@@ -204,84 +205,52 @@ public class UserAdditionalValidationUnitTest {
 
         @Currency("EUR")
         private MonetaryAmount balance;
-        
+
         @DurationMin(days = 1, hours = 2)
         @DurationMax(days = 2, hours = 1)
         private Duration duration;
-        
+
         @Range(min = 0, max = 100)
         private BigDecimal percent;
-        
+
         @Length(min = 1, max = 3)
         @CodePointLength(min = 1, max = 3)
         private String someString;
-        
+
         @URL(protocol = "https")
         private String url;
-        
-        public String getCreditCardNumber() {
-            return creditCardNumber;
-        }
 
-        public void setCreditCardNumber(String creditCardNumber) {
-            this.creditCardNumber = creditCardNumber;
-        }
+        public String getCreditCardNumber() { return creditCardNumber; }
 
-        public String getLenientCreditCardNumber() {
-            return lenientCreditCardNumber;
-        }
+        public void setCreditCardNumber(String creditCardNumber) { this.creditCardNumber = creditCardNumber; }
 
-        public void setLenientCreditCardNumber(String lenientCreditCardNumber) {
-            this.lenientCreditCardNumber = lenientCreditCardNumber;
-        }
+        public String getLenientCreditCardNumber() { return lenientCreditCardNumber; }
 
-        public MonetaryAmount getBalance() {
-            return balance;
-        }
+        public void setLenientCreditCardNumber(String lenientCreditCardNumber) { this.lenientCreditCardNumber = lenientCreditCardNumber; }
 
-        public void setBalance(MonetaryAmount balance) {
-            this.balance = balance;
-        }
-        
-        public Duration getDuration() {
-			return duration;
-		}
-        
-        public void setDuration(Duration duration) {
-			this.duration = duration;
-		}
+        public MonetaryAmount getBalance() { return balance; }
 
-		public BigDecimal getPercent() {
-			return percent;
-		}
+        public void setBalance(MonetaryAmount balance) { this.balance = balance; }
 
-		public void setPercent(BigDecimal percent) {
-			this.percent = percent;
-		}
+        public Duration getDuration() { return duration; }
 
-		public String getSomeString() {
-			return someString;
-		}
+        public void setDuration(Duration duration) { this.duration = duration; }
 
-		public void setSomeString(String someString) {
-			this.someString = someString;
-		}
+        public BigDecimal getPercent() { return percent; }
 
-		public String getUrl() {
-			return url;
-		}
+        public void setPercent(BigDecimal percent) { this.percent = percent; }
 
-		public void setUrl(String url) {
-			this.url = url;
-		}
+        public String getSomeString() { return someString; }
 
-		public boolean isValid() {
-			return valid;
-		}
+        public void setSomeString(String someString) { this.someString = someString; }
 
-		public void setValid(boolean valid) {
-			this.valid = valid;
-		}
-		
+        public String getUrl() { return url; }
+
+        public void setUrl(String url) { this.url = url; }
+
+        public boolean isValid() { return valid; }
+
+        public void setValid(boolean valid) { this.valid = valid; }
+
     }
 }

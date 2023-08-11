@@ -29,21 +29,22 @@ import com.baeldung.hibernate.pojo.inheritance.Pet;
 import com.baeldung.hibernate.pojo.inheritance.Vehicle;
 
 public class HibernateUtil {
+
     private static String PROPERTY_FILE_NAME;
+
     private HibernateUtil() {
     }
 
-    public static SessionFactory getSessionFactory() throws IOException {
-        return getSessionFactory("");
-    }
-    
+    public static SessionFactory getSessionFactory() throws IOException { return getSessionFactory(""); }
+
     public static SessionFactory getSessionFactory(String propertyFileName) throws IOException {
-        if(propertyFileName.equals("")) propertyFileName = null;
+        if (propertyFileName.equals(""))
+            propertyFileName = null;
         PROPERTY_FILE_NAME = propertyFileName;
         ServiceRegistry serviceRegistry = configureServiceRegistry();
         return makeSessionFactory(serviceRegistry);
     }
-    
+
     public static SessionFactory getSessionFactory(Strategy strategy) {
         return buildSessionFactory(strategy);
     }
@@ -58,11 +59,9 @@ public class HibernateUtil {
                 metadataSources.addAnnotatedClass(entityClass);
             }
 
-            Metadata metadata = metadataSources.getMetadataBuilder()
-                    .build();
+            Metadata metadata = metadataSources.getMetadataBuilder().build();
 
-            return metadata.getSessionFactoryBuilder()
-                    .build();
+            return metadata.getSessionFactoryBuilder().build();
         } catch (IOException ex) {
             throw new ExceptionInInitializerError(ex);
         }
@@ -89,26 +88,20 @@ public class HibernateUtil {
         metadataSources.addAnnotatedClass(Pet.class);
         metadataSources.addAnnotatedClass(Vehicle.class);
 
-        Metadata metadata = metadataSources.getMetadataBuilder()
-            .build();
+        Metadata metadata = metadataSources.getMetadataBuilder().build();
 
-        return metadata.getSessionFactoryBuilder()
-                .build();
+        return metadata.getSessionFactoryBuilder().build();
 
     }
 
-
     private static ServiceRegistry configureServiceRegistry() throws IOException {
         Properties properties = getProperties();
-        return new StandardServiceRegistryBuilder().applySettings(properties)
-                .build();
+        return new StandardServiceRegistryBuilder().applySettings(properties).build();
     }
 
     private static Properties getProperties() throws IOException {
         Properties properties = new Properties();
-        URL propertiesURL = Thread.currentThread()
-                .getContextClassLoader()
-                .getResource(StringUtils.defaultString(PROPERTY_FILE_NAME, "hibernate.properties"));
+        URL propertiesURL = Thread.currentThread().getContextClassLoader().getResource(StringUtils.defaultString(PROPERTY_FILE_NAME, "hibernate.properties"));
         try (FileInputStream inputStream = new FileInputStream(propertiesURL.getFile())) {
             properties.load(inputStream);
         }

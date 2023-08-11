@@ -25,7 +25,7 @@ public class ConversionClassUtil {
 
     // Generating Secret Key using password and salt
     public static SecretKey getKeyFromPassword(String password, String salt)
-            throws NoSuchAlgorithmException, InvalidKeySpecException {
+                                                                             throws NoSuchAlgorithmException, InvalidKeySpecException {
         SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
         KeySpec spec = new PBEKeySpec(password.toCharArray(), salt.getBytes(), 65536, 256);
         SecretKey originalKey = new SecretKeySpec(factory.generateSecret(spec).getEncoded(), "AES");

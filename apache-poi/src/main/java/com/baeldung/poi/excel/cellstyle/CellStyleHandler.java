@@ -9,7 +9,7 @@ public class CellStyleHandler {
 
     public void changeCellBackgroundColor(Cell cell) {
         CellStyle cellStyle = cell.getCellStyle();
-        if(cellStyle == null) {
+        if (cellStyle == null) {
             cellStyle = cell.getSheet().getWorkbook().createCellStyle();
         }
         cellStyle.setFillForegroundColor(IndexedColors.LIGHT_BLUE.getIndex());
@@ -19,7 +19,7 @@ public class CellStyleHandler {
 
     public void changeCellBackgroundColorWithPattern(Cell cell) {
         CellStyle cellStyle = cell.getCellStyle();
-        if(cellStyle == null) {
+        if (cellStyle == null) {
             cellStyle = cell.getSheet().getWorkbook().createCellStyle();
         }
         cellStyle.setFillBackgroundColor(IndexedColors.BLACK.index);

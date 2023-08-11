@@ -13,10 +13,7 @@ import java.time.Duration;
 public class LongPollingBakeryClient {
 
     public String callBakeWithRestTemplate(RestTemplateBuilder restTemplateBuilder) {
-        RestTemplate restTemplate = restTemplateBuilder
-          .setConnectTimeout(Duration.ofSeconds(10))
-          .setReadTimeout(Duration.ofSeconds(10))
-          .build();
+        RestTemplate restTemplate = restTemplateBuilder.setConnectTimeout(Duration.ofSeconds(10)).setReadTimeout(Duration.ofSeconds(10)).build();
 
         try {
             return restTemplate.getForObject("/api/bake/cookie?bakeTime=1000", String.class);
@@ -29,12 +26,7 @@ public class LongPollingBakeryClient {
         WebClient webClient = WebClient.create();
 
         try {
-            return webClient.get()
-              .uri("/api/bake/cookie?bakeTime=1000")
-              .retrieve()
-              .bodyToFlux(String.class)
-              .timeout(Duration.ofSeconds(10))
-              .blockFirst();
+            return webClient.get().uri("/api/bake/cookie?bakeTime=1000").retrieve().bodyToFlux(String.class).timeout(Duration.ofSeconds(10)).blockFirst();
         } catch (ReadTimeoutException e) {
             throw e;
         }

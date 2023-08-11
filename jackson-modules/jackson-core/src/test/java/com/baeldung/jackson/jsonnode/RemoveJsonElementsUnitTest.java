@@ -9,6 +9,7 @@ import java.util.Iterator;
 import org.junit.Test;
 
 public class RemoveJsonElementsUnitTest {
+
     @Test
     public void given_JsonData_whenUsingJackson_thenRemoveElementByKey() throws JsonProcessingException {
         String json = "{\"name\": \"John\", \"age\": 30, \"city\": \"New York\"}";
@@ -19,6 +20,7 @@ public class RemoveJsonElementsUnitTest {
         String updatedJson = objectMapper.writeValueAsString(object);
         Assertions.assertEquals("{\"name\":\"John\",\"city\":\"New York\"}", updatedJson);
     }
+
     @Test
     public void given_JsonData_whenUsingJackson_thenRemoveElementsByCondition() throws JsonProcessingException {
         String json = "{\"name\": \"John\", \"age\": 30, \"city\": \"New York\"}";

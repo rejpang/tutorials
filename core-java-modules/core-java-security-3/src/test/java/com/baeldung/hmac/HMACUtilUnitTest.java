@@ -11,7 +11,7 @@ public class HMACUtilUnitTest {
 
     @Test
     public void givenDataAndKeyAndAlgorithm_whenHmacWithJava_thenSuccess()
-        throws NoSuchAlgorithmException, InvalidKeyException {
+                                                                           throws NoSuchAlgorithmException, InvalidKeyException {
 
         //given
         String hmacSHA256Value = "5b50d80c7dc7ae8bb1b1433cc0b99ecd2ac8397a555c6f75cb8a619ae35a0c35";
@@ -47,7 +47,7 @@ public class HMACUtilUnitTest {
 
         //given
         String hmacSHA512Value = "b313a21908df55c9e322e3c65a4b0b7561ab1594ca806b3affbc0d769a1" +
-          "290c1922aa6622587bea3c0c4d871470a6d06f54dbd20dbda84250e2741eb01f08e33";
+            "290c1922aa6622587bea3c0c4d871470a6d06f54dbd20dbda84250e2741eb01f08e33";
         String hmacSHA512Algorithm = "HmacSHA512";
         String data = "baeldung";
         String key = "123456";

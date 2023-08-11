@@ -12,7 +12,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.baeldung.camel.apache.file.FileProcessor;
 
-
 public class FileProcessorIntegrationTest {
 
     private static final long DURATION_MILIS = 10000;
@@ -55,6 +54,7 @@ public class FileProcessorIntegrationTest {
     public void moveFolderContentJavaDSLTest() throws Exception {
         final CamelContext camelContext = new DefaultCamelContext();
         camelContext.addRoutes(new RouteBuilder() {
+
             @Override
             public void configure() throws Exception {
                 from("file://" + SOURCE_FOLDER + "?delete=true").process(new FileProcessor()).to("file://" + DESTINATION_FOLDER);

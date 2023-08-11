@@ -16,7 +16,8 @@ class GenericTypeDeserializerUnitTest {
     void givenJsonObject_whenDeserializeIntoGenericTypeByTypeReference_thenCorrect() throws JsonProcessingException {
         String json = "{\"result\":{\"id\":1,\"firstName\":\"John\",\"lastName\":\"Lewis\"}}";
 
-        TypeReference<JsonResponse<User>> typeRef = new TypeReference<JsonResponse<User>>() {};
+        TypeReference<JsonResponse<User>> typeRef = new TypeReference<JsonResponse<User>>() {
+        };
         JsonResponse<User> jsonResponse = objectMapper.readValue(json, typeRef);
         User user = jsonResponse.getResult();
 

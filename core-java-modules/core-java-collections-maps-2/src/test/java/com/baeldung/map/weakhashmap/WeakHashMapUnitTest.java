@@ -1,6 +1,5 @@
 package com.baeldung.map.weakhashmap;
 
-
 import org.junit.Test;
 
 import java.util.WeakHashMap;
@@ -53,8 +52,8 @@ public class WeakHashMapUnitTest {
         await().atMost(10, TimeUnit.SECONDS).until(() -> map.containsKey(imageNameSecond));
     }
 
-
     class BigImage {
+
         public final String imageId;
 
         BigImage(String imageId) {
@@ -63,6 +62,7 @@ public class WeakHashMapUnitTest {
     }
 
     class UniqueImageName {
+
         public final String imageName;
 
         UniqueImageName(String imageName) {

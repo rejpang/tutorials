@@ -16,9 +16,7 @@ public class BankPayment implements Payment {
     }
 
     @Override
-    public List<Object> getPayments() {
-        return Collections.emptyList();
-    }
+    public List<Object> getPayments() { return Collections.emptyList(); }
 
     @Override
     public void intiateLoanSettlement() {

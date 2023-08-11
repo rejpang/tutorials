@@ -16,6 +16,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class CellStyleHandlerUnitTest {
+
     private static final String FILE_NAME = "cellstyle/CellStyleHandlerTest.xlsx";
     private static final int SHEET_INDEX = 0;
     private static final int ROW_INDEX = 0;

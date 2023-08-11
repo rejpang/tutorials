@@ -13,14 +13,12 @@ public class MapToString {
         for (Integer key : map.keySet()) {
             mapAsString.append(key + "=" + map.get(key) + ", ");
         }
-        mapAsString.delete(mapAsString.length()-2, mapAsString.length()).append("}");
+        mapAsString.delete(mapAsString.length() - 2, mapAsString.length()).append("}");
         return mapAsString.toString();
     }
 
     public static String convertWithStream(Map<Integer, ?> map) {
-        String mapAsString = map.keySet().stream()
-                .map(key -> key + "=" + map.get(key))
-                .collect(Collectors.joining(", ", "{", "}"));
+        String mapAsString = map.keySet().stream().map(key -> key + "=" + map.get(key)).collect(Collectors.joining(", ", "{", "}"));
         return mapAsString;
     }
 

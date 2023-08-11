@@ -12,7 +12,7 @@ public class ConversionClassUtilUnitTest {
 
     @Test
     void givenPasswordAndSalt_whenCreateSecreKeyCheckConversion_thenSuccess()
-            throws NoSuchAlgorithmException, InvalidKeySpecException {
+                                                                              throws NoSuchAlgorithmException, InvalidKeySpecException {
         // given
         String password = "Baeldung@2021";
         String salt = "@$#baelDunG@#^$*";
@@ -28,7 +28,7 @@ public class ConversionClassUtilUnitTest {
 
     @Test
     void givenSize_whenCreateSecreKeyCheckConversion_thenSuccess()
-            throws NoSuchAlgorithmException, InvalidKeySpecException {
+                                                                   throws NoSuchAlgorithmException, InvalidKeySpecException {
         // given
         int size = 256;
 

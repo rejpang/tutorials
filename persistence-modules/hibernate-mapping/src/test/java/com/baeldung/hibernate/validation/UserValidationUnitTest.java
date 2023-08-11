@@ -68,8 +68,7 @@ public class UserValidationUnitTest {
     public void whenSavingFirstNameWithInvalidFirstName_thenPersistenceException() {
         User user = new User("john", "mathis", "butler", "japan");
         session.save(user);
-        session.getTransaction()
-            .commit();
+        session.getTransaction().commit();
     }
 
     @Test

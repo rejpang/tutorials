@@ -9,7 +9,7 @@ import jakarta.persistence.Id;
 @Entity
 @Polymorphism(type = PolymorphismType.IMPLICIT)
 public class Laptop implements Item {
-    
+
     @Id
     private Long id;
 
@@ -20,20 +20,12 @@ public class Laptop implements Item {
         this.type = type;
     }
 
-    public Long getId() {
-        return id;
-    }
+    public Long getId() { return id; }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    public void setId(Long id) { this.id = id; }
 
-    public String getType() {
-        return type;
-    }
+    public String getType() { return type; }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-    
+    public void setType(String type) { this.type = type; }
+
 }

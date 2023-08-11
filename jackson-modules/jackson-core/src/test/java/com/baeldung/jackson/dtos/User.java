@@ -1,6 +1,7 @@
 package com.baeldung.jackson.dtos;
 
 public class User {
+
     public int id;
     public String name;
 
@@ -15,12 +16,8 @@ public class User {
 
     // API
 
-    public int getId() {
-        return id;
-    }
+    public int getId() { return id; }
 
-    public String getName() {
-        return name;
-    }
+    public String getName() { return name; }
 
 }

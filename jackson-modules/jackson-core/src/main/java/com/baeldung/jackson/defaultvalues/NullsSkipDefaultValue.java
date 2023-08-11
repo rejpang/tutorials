@@ -9,15 +9,11 @@ public class NullsSkipDefaultValue {
     @JsonSetter(nulls = Nulls.SKIP)
     private String optional = "defaultValue";
 
-    public void setOptional(String optional){}
+    public void setOptional(String optional) {}
 
-    public String getRequired() {
-        return required;
-    }
+    public String getRequired() { return required; }
 
-    public String getOptional() {
-        return optional;
-    }
+    public String getOptional() { return optional; }
 
     @Override
     public String toString() {

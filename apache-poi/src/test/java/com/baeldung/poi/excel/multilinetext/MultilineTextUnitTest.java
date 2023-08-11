@@ -20,6 +20,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class MultilineTextUnitTest {
+
     private static String FILE_NAME = "com/baeldung/poi/excel/multilinetext/MultilineTextTest.xlsx";
     private static final String NEW_FILE_NAME = "MultilineTextTest_output.xlsx";
     private static final int STRING_ROW_INDEX = 1;
@@ -29,9 +30,7 @@ public class MultilineTextUnitTest {
 
     @Before
     public void setup() throws IOException, URISyntaxException {
-        fileLocation = Paths.get(ClassLoader.getSystemResource(FILE_NAME)
-            .toURI())
-            .toString();
+        fileLocation = Paths.get(ClassLoader.getSystemResource(FILE_NAME).toURI()).toString();
     }
 
     @Test
@@ -53,13 +52,9 @@ public class MultilineTextUnitTest {
         File file = new File(NEW_FILE_NAME);
         FileInputStream fileInputStream = new FileInputStream(file);
         Workbook testWorkbook = new XSSFWorkbook(fileInputStream);
-        assertTrue(row.getHeightInPoints() == testWorkbook.getSheetAt(0)
-            .getRow(STRING_ROW_INDEX)
-            .getHeightInPoints());
+        assertTrue(row.getHeightInPoints() == testWorkbook.getSheetAt(0).getRow(STRING_ROW_INDEX).getHeightInPoints());
         DataFormatter formatter = new DataFormatter();
-        assertEquals("Hello \n world!", formatter.formatCellValue(testWorkbook.getSheetAt(0)
-            .getRow(STRING_ROW_INDEX)
-            .getCell(STRING_CELL_INDEX)));
+        assertEquals("Hello \n world!", formatter.formatCellValue(testWorkbook.getSheetAt(0).getRow(STRING_ROW_INDEX).getCell(STRING_CELL_INDEX)));
         testWorkbook.close();
         fileInputStream.close();
         file.delete();

@@ -17,7 +17,10 @@ import static org.junit.Assert.assertThat;
 public class FileEncrypterDecrypterIntegrationTest {
 
     @Test
-    public void givenStringAndFilename_whenEncryptingIntoFile_andDecryptingFileAgain_thenOriginalStringIsReturned() throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IOException, InvalidAlgorithmParameterException {
+    public void givenStringAndFilename_whenEncryptingIntoFile_andDecryptingFileAgain_thenOriginalStringIsReturned() throws NoSuchAlgorithmException,
+                                                                                                                    NoSuchPaddingException, InvalidKeyException,
+                                                                                                                    IOException,
+                                                                                                                    InvalidAlgorithmParameterException {
         String originalContent = "foobar";
         SecretKey secretKey = KeyGenerator.getInstance("AES").generateKey();
 

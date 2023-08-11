@@ -19,20 +19,12 @@ public class Person {
         this.name = name;
     }
 
-    public long getPersonId() {
-        return personId;
-    }
+    public long getPersonId() { return personId; }
 
-    public void setPersonId(long personId) {
-        this.personId = personId;
-    }
+    public void setPersonId(long personId) { this.personId = personId; }
 
-    public String getName() {
-        return name;
-    }
+    public String getName() { return name; }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public void setName(String name) { this.name = name; }
 
 }

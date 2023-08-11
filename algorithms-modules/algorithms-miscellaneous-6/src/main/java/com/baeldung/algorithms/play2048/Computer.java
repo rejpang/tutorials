@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Computer {
+
     private static final Logger LOG = LoggerFactory.getLogger(Computer.class);
 
     private final SecureRandom rng = new SecureRandom();

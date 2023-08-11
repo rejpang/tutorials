@@ -14,13 +14,14 @@ import java.util.Map;
 
 @Configuration
 public class AnnotationDrivenEndpointsListener {
+
     private final Logger LOGGER = LoggerFactory.getLogger("AnnotationDrivenEndpointsListener.class");
 
     @EventListener
     public void handleContextRefresh(ContextRefreshedEvent event) {
         ApplicationContext applicationContext = event.getApplicationContext();
-        RequestMappingHandlerMapping requestMappingHandlerMapping = applicationContext
-          .getBean("requestMappingHandlerMapping", RequestMappingHandlerMapping.class);
+        RequestMappingHandlerMapping requestMappingHandlerMapping = applicationContext.getBean("requestMappingHandlerMapping",
+                                                                                               RequestMappingHandlerMapping.class);
         Map<RequestMappingInfo, HandlerMethod> map = requestMappingHandlerMapping.getHandlerMethods();
         map.forEach((key, value) -> LOGGER.info("{} {}", key, value));
     }

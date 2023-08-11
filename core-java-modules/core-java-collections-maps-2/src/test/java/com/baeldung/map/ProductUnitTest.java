@@ -10,7 +10,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ProductUnitTest {
 
-
     @Test
     public void getExistingValue() {
         HashMap<String, Product> productsByName = new HashMap<>();
@@ -139,19 +138,16 @@ class ProductUnitTest {
     }
 
     static class MutableKey {
+
         private String name;
 
         public MutableKey(String name) {
             this.name = name;
         }
 
-        public String getName() {
-            return name;
-        }
+        public String getName() { return name; }
 
-        public void setName(String name) {
-            this.name = name;
-        }
+        public void setName(String name) { this.name = name; }
 
         @Override
         public boolean equals(Object o) {

@@ -26,14 +26,15 @@ public class JavaKeyStore {
     private String keyStoreType;
     private String keyStorePassword;
 
-    JavaKeyStore(String keyStoreType, String keyStorePassword, String keyStoreName) throws CertificateException, NoSuchAlgorithmException, KeyStoreException, IOException {
+    JavaKeyStore(String keyStoreType, String keyStorePassword, String keyStoreName) throws CertificateException, NoSuchAlgorithmException, KeyStoreException,
+                                                                                    IOException {
         this.keyStoreName = keyStoreName;
         this.keyStoreType = keyStoreType;
         this.keyStorePassword = keyStorePassword;
     }
 
     void createEmptyKeyStore() throws KeyStoreException, CertificateException, NoSuchAlgorithmException, IOException {
-        if(keyStoreType ==null || keyStoreType.isEmpty()){
+        if (keyStoreType == null || keyStoreType.isEmpty()) {
             keyStoreType = KeyStore.getDefaultType();
         }
         keyStore = KeyStore.getInstance(keyStoreType);
@@ -86,12 +87,10 @@ public class JavaKeyStore {
             keyStore.deleteEntry(alias);
         }
         keyStore = null;
-        
+
         Path keyStoreFile = Paths.get(keyStoreName);
         Files.delete(keyStoreFile);
     }
 
-    KeyStore getKeyStore() {
-        return this.keyStore;
-    }
+    KeyStore getKeyStore() { return this.keyStore; }
 }

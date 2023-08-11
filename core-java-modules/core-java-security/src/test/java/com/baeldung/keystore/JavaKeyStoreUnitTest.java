@@ -176,7 +176,8 @@ public class JavaKeyStoreUnitTest {
         Assert.assertTrue(result == null);
     }
 
-    private X509Certificate generateSelfSignedCertificate(KeyPair keyPair) throws CertificateException, IOException, NoSuchProviderException, NoSuchAlgorithmException, InvalidKeyException, SignatureException {
+    private X509Certificate generateSelfSignedCertificate(KeyPair keyPair) throws CertificateException, IOException, NoSuchProviderException,
+                                                                           NoSuchAlgorithmException, InvalidKeyException, SignatureException {
         X509CertInfo certInfo = new X509CertInfo();
         // Serial number and version
         certInfo.set(X509CertInfo.SERIAL_NUMBER, new CertificateSerialNumber(new BigInteger(64, new SecureRandom())));
@@ -197,23 +198,23 @@ public class JavaKeyStoreUnitTest {
         Date validTo = new Date(validFrom.getTime() + 50L * 365L * 24L * 60L * 60L * 1000L); //50 years
         CertificateValidity validity = new CertificateValidity(validFrom, validTo);
         certInfo.set(X509CertInfo.VALIDITY, validity);
-        
+
         GeneralNameInterface dnsName = new DNSName("baeldung.com");
         DerOutputStream dnsNameOutputStream = new DerOutputStream();
         dnsName.encode(dnsNameOutputStream);
-        
+
         GeneralNameInterface ipAddress = new IPAddressName("127.0.0.1");
         DerOutputStream ipAddressOutputStream = new DerOutputStream();
         ipAddress.encode(ipAddressOutputStream);
-        
+
         GeneralNames generalNames = new GeneralNames();
         generalNames.add(new GeneralName(dnsName));
         generalNames.add(new GeneralName(ipAddress));
-        
+
         CertificateExtensions ext = new CertificateExtensions();
         ext.set(SubjectAlternativeNameExtension.NAME, new SubjectAlternativeNameExtension(generalNames));
 
-        certInfo.set(X509CertInfo.EXTENSIONS, ext);        
+        certInfo.set(X509CertInfo.EXTENSIONS, ext);
 
         // Create certificate and sign it
         X509CertImpl cert = new X509CertImpl(certInfo);

@@ -12,7 +12,7 @@ import com.baeldung.crypto.utils.CryptoUtils;
 public class BadPaddingExamples {
 
     public static byte[] encryptAndDecryptUsingDifferentKeys(byte[] plainTextBytes)
-            throws InvalidKeyException, GeneralSecurityException {
+                                                                                    throws InvalidKeyException, GeneralSecurityException {
         SecretKey encryptionKey = CryptoUtils.getKeyForText("BaeldungIsASuperCoolSite");
         SecretKey differentKey = CryptoUtils.getKeyForText("ThisGivesUsAnAlternative");
 
@@ -27,7 +27,7 @@ public class BadPaddingExamples {
     }
 
     public static byte[] encryptAndDecryptUsingDifferentAlgorithms(SecretKey key, IvParameterSpec ivParameterSpec,
-            byte[] plainTextBytes) throws InvalidKeyException, GeneralSecurityException {
+                                                                   byte[] plainTextBytes) throws InvalidKeyException, GeneralSecurityException {
         Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
 
         cipher.init(Cipher.ENCRYPT_MODE, key, ivParameterSpec);
@@ -41,7 +41,7 @@ public class BadPaddingExamples {
     }
 
     public static byte[] encryptAndDecryptUsingDifferentPaddings(SecretKey key, byte[] plainTextBytes)
-            throws InvalidKeyException, GeneralSecurityException {
+                                                                                                       throws InvalidKeyException, GeneralSecurityException {
         Cipher cipher = Cipher.getInstance("AES/ECB/ISO10126Padding");
         cipher.init(Cipher.ENCRYPT_MODE, key);
         byte[] cipherTextBytes = cipher.doFinal(plainTextBytes);
@@ -53,7 +53,8 @@ public class BadPaddingExamples {
     }
 
     public static byte[] encryptAndDecryptUsingSamePaddingKeyAndAlgorithm(SecretKey key, byte[] plainTextBytes)
-            throws InvalidKeyException, GeneralSecurityException {
+                                                                                                                throws InvalidKeyException,
+                                                                                                                GeneralSecurityException {
         Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
         cipher.init(Cipher.ENCRYPT_MODE, key);
         byte[] cipherTextBytes = cipher.doFinal(plainTextBytes);

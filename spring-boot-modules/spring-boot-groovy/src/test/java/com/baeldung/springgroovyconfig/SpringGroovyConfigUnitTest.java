@@ -48,8 +48,7 @@ class SpringGroovyConfigUnitTest {
 
             assertEquals("Lakshmi", employee.getFirstName());
             assertEquals("Priya", employee.getLastName());
-            assertEquals("XYZ Inc", employee.getCompany()
-                .getName());
+            assertEquals("XYZ Inc", employee.getCompany().getName());
         } catch (BeansException | IllegalStateException e) {
             fail(e.getMessage());
         }
@@ -103,29 +102,28 @@ class SpringGroovyConfigUnitTest {
     @Test
     void givenGroovyScript_whenCalledWithScriptEngine_thenReturnsResult() {
         try {
-            GroovyScriptEngine engine = new GroovyScriptEngine(ResourceUtils.getFile("file:src/main/resources/")
-                .getAbsolutePath(), this.getClass().getClassLoader());
+            GroovyScriptEngine engine = new GroovyScriptEngine(ResourceUtils.getFile("file:src/main/resources/").getAbsolutePath(),
+                                                               this.getClass().getClassLoader());
             Class<GroovyObject> joinerClass = engine.loadScriptByName("StringJoiner.groovy");
-            GroovyObject joiner = joinerClass.getDeclaredConstructor()
-                .newInstance();
+            GroovyObject joiner = joinerClass.getDeclaredConstructor().newInstance();
             Object result = joiner.invokeMethod("join", new Object[] { "Mr.", "Bob" });
-            
+
             assertEquals("Mr.Bob", result.toString());
         } catch (Exception e) {
             fail(e.getMessage());
         }
     }
-    
+
     @Test
     void givenGroovyScript_whenCalledWithBindingObject_thenReturnsResult() {
         try {
-            GroovyScriptEngine engine = new GroovyScriptEngine(ResourceUtils.getFile("file:src/main/resources/")
-                .getAbsolutePath(), this.getClass().getClassLoader());
+            GroovyScriptEngine engine = new GroovyScriptEngine(ResourceUtils.getFile("file:src/main/resources/").getAbsolutePath(),
+                                                               this.getClass().getClassLoader());
             Binding binding = new Binding();
             binding.setVariable("arg1", "Mr.");
             binding.setVariable("arg2", "Bob");
             Object result = engine.run("StringJoinerScript.groovy", binding);
-            
+
             assertEquals("Mr.Bob", result.toString());
         } catch (Exception e) {
             fail(e.getMessage());

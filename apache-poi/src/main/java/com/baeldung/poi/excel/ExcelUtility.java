@@ -13,6 +13,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ExcelUtility {
+
     private static final String ENDLINE = System.getProperty("line.separator");
 
     public static String readExcel(String filePath) throws IOException {
@@ -23,13 +24,9 @@ public class ExcelUtility {
             inputStream = new FileInputStream(file);
             Workbook baeuldungWorkBook = new XSSFWorkbook(inputStream);
             for (Sheet sheet : baeuldungWorkBook) {
-                toReturn.append("--------------------------------------------------------------------")
-                    .append(ENDLINE);
-                toReturn.append("Worksheet :")
-                    .append(sheet.getSheetName())
-                    .append(ENDLINE);
-                toReturn.append("--------------------------------------------------------------------")
-                    .append(ENDLINE);
+                toReturn.append("--------------------------------------------------------------------").append(ENDLINE);
+                toReturn.append("Worksheet :").append(sheet.getSheetName()).append(ENDLINE);
+                toReturn.append("--------------------------------------------------------------------").append(ENDLINE);
                 int firstRow = sheet.getFirstRowNum();
                 int lastRow = sheet.getLastRowNum();
                 for (int index = firstRow + 1; index <= lastRow; index++) {
@@ -39,8 +36,7 @@ public class ExcelUtility {
                         Cell cell = row.getCell(cellIndex, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK);
                         printCellValue(cell, toReturn);
                     }
-                    toReturn.append(" ||")
-                        .append(ENDLINE);
+                    toReturn.append(" ||").append(ENDLINE);
                 }
             }
             inputStream.close();
@@ -53,24 +49,19 @@ public class ExcelUtility {
     }
 
     public static void printCellValue(Cell cell, StringBuilder toReturn) {
-        CellType cellType = cell.getCellType()
-            .equals(CellType.FORMULA) ? cell.getCachedFormulaResultType() : cell.getCellType();
+        CellType cellType = cell.getCellType().equals(CellType.FORMULA) ? cell.getCachedFormulaResultType() : cell.getCellType();
         if (cellType.equals(CellType.STRING)) {
-            toReturn.append(cell.getStringCellValue())
-                .append(" | ");
+            toReturn.append(cell.getStringCellValue()).append(" | ");
         }
         if (cellType.equals(CellType.NUMERIC)) {
             if (DateUtil.isCellDateFormatted(cell)) {
-                toReturn.append(cell.getDateCellValue())
-                    .append(" | ");
+                toReturn.append(cell.getDateCellValue()).append(" | ");
             } else {
-                toReturn.append(cell.getNumericCellValue())
-                    .append(" | ");
+                toReturn.append(cell.getNumericCellValue()).append(" | ");
             }
         }
         if (cellType.equals(CellType.BOOLEAN)) {
-            toReturn.append(cell.getBooleanCellValue())
-                .append(" | ");
+            toReturn.append(cell.getBooleanCellValue()).append(" | ");
         }
     }
 }

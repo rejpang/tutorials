@@ -11,19 +11,16 @@ import java.util.List;
 public class UserController {
 
     @GetMapping(value = "/")
-    List<User> getAllUsers(){
-        return Collections.singletonList(new User(1, "Andy", 28, "14th Street"));
-    }
+    List<User> getAllUsers() { return Collections.singletonList(new User(1, "Andy", 28, "14th Street")); }
 
     @GetMapping(value = "/{user-id}")
-    User getUser(@PathVariable("user-id") Integer userId){
+    User getUser(@PathVariable("user-id") Integer userId) {
         return new User(userId, "Andy", 28, "14th Street");
     }
 
-    @PostMapping(value = "/", consumes = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
-    void AddUser(@RequestBody User user){
+    @PostMapping(value = "/", consumes = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+    void AddUser(@RequestBody User user) {
         // Adding the User in the repository
     }
-
 
 }

@@ -1,7 +1,7 @@
 package com.baeldung.groovyconfig;
 
 public class JavaPersonBean {
-    
+
     public String jj;
 
     private String firstName;
@@ -14,44 +14,24 @@ public class JavaPersonBean {
 
     private String hairColor;
 
-    public String getFirstName() {
-        return firstName;
-    }
+    public String getFirstName() { return firstName; }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+    public void setFirstName(String firstName) { this.firstName = firstName; }
 
-    public String getLastName() {
-        return lastName;
-    }
+    public String getLastName() { return lastName; }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+    public void setLastName(String lastName) { this.lastName = lastName; }
 
-    public String getAge() {
-        return age;
-    }
+    public String getAge() { return age; }
 
-    public void setAge(String age) {
-        this.age = age;
-    }
+    public void setAge(String age) { this.age = age; }
 
-    public String getEyesColor() {
-        return eyesColor;
-    }
+    public String getEyesColor() { return eyesColor; }
 
-    public void setEyesColor(String eyesColor) {
-        this.eyesColor = eyesColor;
-    }
+    public void setEyesColor(String eyesColor) { this.eyesColor = eyesColor; }
 
-    public String getHairColor() {
-        return hairColor;
-    }
+    public String getHairColor() { return hairColor; }
 
-    public void setHairColor(String hairColor) {
-        this.hairColor = hairColor;
-    }
+    public void setHairColor(String hairColor) { this.hairColor = hairColor; }
 
 }

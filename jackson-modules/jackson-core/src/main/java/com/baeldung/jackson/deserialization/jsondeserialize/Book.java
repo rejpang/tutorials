@@ -25,51 +25,27 @@ public class Book {
         this.title = title;
     }
 
-    public String getISBN() {
-        return ISBN;
-    }
+    public String getISBN() { return ISBN; }
 
-    public void setISBN(String ISBN) {
-        this.ISBN = ISBN;
-    }
+    public void setISBN(String ISBN) { this.ISBN = ISBN; }
 
-    public Date getPublished() {
-        return published;
-    }
+    public Date getPublished() { return published; }
 
-    public void setPublished(Date published) {
-        this.published = published;
-    }
+    public void setPublished(Date published) { this.published = published; }
 
-    public BigDecimal getPages() {
-        return pages;
-    }
+    public BigDecimal getPages() { return pages; }
 
-    public void setPages(BigDecimal pages) {
-        this.pages = pages;
-    }
-    
-    public UUID getId() {
-        return id;
-    }
+    public void setPages(BigDecimal pages) { this.pages = pages; }
 
-    public void setId(UUID id) {
-        this.id = id;
-    }
+    public UUID getId() { return id; }
 
-    public String getTitle() {
-        return title;
-    }
+    public void setId(UUID id) { this.id = id; }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+    public String getTitle() { return title; }
 
-    public float getPrice() {
-        return price;
-    }
+    public void setTitle(String title) { this.title = title; }
 
-    public void setPrice(float price) {
-        this.price = price;
-    }
+    public float getPrice() { return price; }
+
+    public void setPrice(float price) { this.price = price; }
 }

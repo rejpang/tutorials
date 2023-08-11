@@ -31,12 +31,9 @@ public class AvroProducer {
         employeeKey.setId(empId);
         employeeKey.setDepartmentName("IT");
 
-        Message<Employee> message = MessageBuilder.withPayload(employee)
-            .setHeader(KafkaHeaders.MESSAGE_KEY, employeeKey)
-            .build();
+        Message<Employee> message = MessageBuilder.withPayload(employee).setHeader(KafkaHeaders.MESSAGE_KEY, employeeKey).build();
 
-        processor.output()
-            .send(message);
+        processor.output().send(message);
     }
 
 }

@@ -13,9 +13,9 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 public class FlawedControllerIntegrationTest {
-    
+
     private static final Logger LOGGER = LoggerFactory.getLogger(FlawedControllerIntegrationTest.class);
-    
+
     @Autowired
     FlawedController myController;
 

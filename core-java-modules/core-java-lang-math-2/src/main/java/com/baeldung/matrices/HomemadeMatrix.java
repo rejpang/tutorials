@@ -1,6 +1,7 @@
 package com.baeldung.matrices;
 
 public class HomemadeMatrix {
+
     public static double[][] multiplyMatrices(double[][] firstMatrix, double[][] secondMatrix) {
         double[][] result = new double[firstMatrix.length][secondMatrix[0].length];
 
