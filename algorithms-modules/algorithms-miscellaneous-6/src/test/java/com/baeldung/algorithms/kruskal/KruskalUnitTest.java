@@ -18,8 +18,7 @@ class KruskalUnitTest {
 
     @BeforeEach
     public void setup() {
-        graph = ValueGraphBuilder.undirected()
-            .build();
+        graph = ValueGraphBuilder.undirected().build();
         graph.putEdgeValue(0, 1, 8.0);
         graph.putEdgeValue(0, 2, 5.0);
         graph.putEdgeValue(1, 2, 9.0);

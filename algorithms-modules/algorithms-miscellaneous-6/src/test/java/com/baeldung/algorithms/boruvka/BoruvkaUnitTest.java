@@ -14,8 +14,7 @@ class BoruvkaUnitTest {
 
     @BeforeEach
     public void setup() {
-        graph = ValueGraphBuilder.undirected()
-            .build();
+        graph = ValueGraphBuilder.undirected().build();
         graph.putEdgeValue(0, 1, 8);
         graph.putEdgeValue(0, 2, 5);
         graph.putEdgeValue(1, 2, 9);
@@ -31,8 +30,7 @@ class BoruvkaUnitTest {
         MutableValueGraph<Integer, Integer> mst = boruvkaMST.getMST();
 
         assertEquals(30, boruvkaMST.getTotalWeight());
-        assertEquals(4, mst.edges()
-            .size());
+        assertEquals(4, mst.edges().size());
     }
 
 }
